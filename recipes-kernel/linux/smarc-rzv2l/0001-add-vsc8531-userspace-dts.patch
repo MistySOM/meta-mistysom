@@ -28,6 +28,7 @@ index 651aa6b..2d45eba 100644
 +                vsc8531,edge-slowdown   = <0>;
 +                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
 +                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
++        };
 +};
 +
 +&eth1 {
@@ -43,5 +44,6 @@ index 651aa6b..2d45eba 100644
 +                vsc8531,edge-slowdown   = <0>;
 +                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
 +                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
++        };
 +};
 +
