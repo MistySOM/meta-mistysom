@@ -1,0 +1,47 @@
+diff --git a/r9a07g054l2-smarc.dts.orig b/r9a07g054l2-smarc.dts
+index 651aa6b..2d45eba 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
+@@ -11,6 +11,7 @@
+ #include "rzg2l-smarc-pinfunction.dtsi"
+ #include "rz-smarc-common.dtsi"
+ #include "rzg2l-smarc.dtsi"
++#include <dt-bindings/net/mscc-phy-vsc8531.h>
+ 
+ / {
+ 	model = "Renesas SMARC EVK based on r9a07g054l2";
+@@ -46,3 +47,36 @@
+ 	/delete-node/ sd0-dev-sel-hog;
+ 	/delete-node/ sd1-pwr-en-hog;
+ };
++
++&eth0 {
++        pinctrl-0 = <&eth0_pins>;
++        pinctrl-names = "default";
++        phy-handle = <&phy0>;
++        phy-mode = "rgmii-id";
++        status = "okay";
++
++        vsc8531_0: ethernet-phy@0 {
++                compatible = "ethernet-phy-id0007.0570";
++                vsc8531,vddmac          = <1800>;
++                vsc8531,edge-slowdown   = <0>;
++                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
++                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
++};
++
++&eth1 {
++        pinctrl-0 = <&eth1_pins>;
++        pinctrl-names = "default";
++        phy-handle = <&phy1>;
++        phy-mode = "rgmii-id";
++        status = "okay";
++
++        vsc8531_0: ethernet-phy@0 {
++                compatible = "ethernet-phy-id0007.0570";
++                vsc8531,vddmac          = <1800>;
++                vsc8531,edge-slowdown   = <0>;
++                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
++                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
++};
++
