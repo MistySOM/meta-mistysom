@@ -1,8 +1,6 @@
-SUMMARY = "My custom Linux image."
+SUMMARY = "MistySOM image."
 
-IMAGE_INSTALL = "packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
-
-IMAGE_LINGUAS = " "
+IMAGE_FEATURES += "splash package-management ssh-server-dropbear hwcodecs packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
 
 LICENSE = "MIT"
 
