@@ -1,5 +1,11 @@
 This README file contains information on the contents of the meta-mistysom layer.
 
+# Branches
+
+- MistySOMG2L branch that contains device tree patches for MistySOMG2L
+- MistySOMV2L branch that contains device tree patches for MistySOMV2L
+- master contains a varierty of updates not related to device tree patching 
+
 Please see the corresponding sections below for details.
 
 Dependencies
