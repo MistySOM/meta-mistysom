@@ -23,3 +23,4 @@ CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'west
 # install lsusb
 IMAGE_INSTALL_append = " usbutils"
 IMAGE_INSTALL_append = " usbutils-python"
+IMAGE_INSTALL_append = " phytool"
