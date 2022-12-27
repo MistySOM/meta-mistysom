@@ -24,3 +24,4 @@ CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'west
 IMAGE_INSTALL_append = " usbutils"
 IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " phytool"
+IMAGE_INSTALL_append = " ethtool"
