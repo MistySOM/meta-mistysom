@@ -56,7 +56,7 @@ WorkingDirectory=${bindir}
 RestartSec=5
 
 EOF
-    chmod 644 ${D}${nonarch_base_libdir}/systemd/system/displaylink-driver.service
+    chmod 755 ${D}${nonarch_base_libdir}/systemd/system/displaylink-driver.service
 }
 
 FILES_${PN} += "${bindir} ${libdir} ${nonarch_base_libdir}"
