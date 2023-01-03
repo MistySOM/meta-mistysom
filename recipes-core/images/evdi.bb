@@ -9,7 +9,7 @@ PROVIDES = "evdi displaylink"
 
 S = "${WORKDIR}/evdi"
 
-PV = "5.6.1"
+PV = "5.6.1-59.184"
 
 DEPENDS = "virtual/kernel kernel-devsrc linux-libc-headers libdrm"
 
@@ -23,8 +23,8 @@ CFLAGS += " -w"
 do_unpack () {
      unzip -o ${DL_DIR}/displaylink.zip -d ${WORKDIR}
      cd ${WORKDIR}
-     ./displaylink-driver-5.6.1-59.184.run --nodiskspace --noexec --keep
-     tar -xvf displaylink-driver-5.6.1-59.184/evdi.tar.gz -C evdi
+     ./displaylink-driver-${PV}.run --nodiskspace --noexec --keep
+     tar -xvf displaylink-driver-${PV}/evdi.tar.gz -C evdi
 }
 
 do_compile () {
@@ -36,10 +36,10 @@ do_install () {
     install -m 755 ${B}/module/evdi.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/evdi.ko
 
     install -d ${D}${libdir}
-    install ${B}/../displaylink-driver-5.6.1-59.184/aarch64-linux-gnu/libusb-1.0.so.0.2.0 ${D}${libdir}
+    install ${B}/../displaylink-driver-${PV}/aarch64-linux-gnu/libusb-1.0.so.0.2.0 ${D}${libdir}
 
     install -d ${D}${bindir}
-    install ${B}/../displaylink-driver-5.6.1-59.184/aarch64-linux-gnu/DisplayLinkManager ${D}${bindir}
+    install ${B}/../displaylink-driver-${PV}/aarch64-linux-gnu/DisplayLinkManager ${D}${bindir}
 
     install -d ${D}${nonarch_base_libdir}/systemd/system
     cat > ${D}${nonarch_base_libdir}/systemd/system/displaylink-driver.service <<EOF
@@ -49,10 +49,10 @@ After=display-manager.service
 Conflicts=getty@tty7.service
 
 [Service]
-ExecStartPre=/bin/sh -c 'modprobe evdi || (dkms install \$(ls -t /usr/src | grep evdi | head -n1  | sed -e "s:-:/:") && modprobe evdi)'
-ExecStart=/opt/displaylink/DisplayLinkManager
+ExecStartPre=/bin/sh -c 'modprobe evdi'
+ExecStart=${bindir}/DisplayLinkManager
 Restart=always
-WorkingDirectory=/opt/displaylink
+WorkingDirectory=${bindir}
 RestartSec=5
 
 EOF
