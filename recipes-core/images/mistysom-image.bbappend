@@ -9,6 +9,13 @@ IMAGE_INSTALL_append = " usbutils"
 IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " phytool"
 IMAGE_INSTALL_append = " ethtool"
+
 IMAGE_INSTALL_append = " xrandr"
 IMAGE_INSTALL_append = " evdi"
+
+IMAGE_INSTALL_append = " xf86-video-modesetting"
+IMAGE_INSTALL_append = " xserver-xorg-extension-glx"
+IMAGE_INSTALL_append = " xserver-xorg-extension-dri"
+IMAGE_INSTALL_append = " xserver-xorg-xvfb"
+
 WHITELIST_GPL-3.0 += "vte-locale-en-gb"
