@@ -2,11 +2,11 @@ diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
 index 651aa6b..f165a7a 100644
 --- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
 +++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
-@@ -46,3 +47,25 @@
- 	/delete-node/ sd0-dev-sel-hog;
- 	/delete-node/ sd1-pwr-en-hog;
+@@ -39,3 +39,33 @@
+                 vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
+         };
  };
-
++
 +&i2c3 {
 +        gpio-mistysom: i2c_gpio_expander@20{
 +                #gpio-cells = <2>;
@@ -35,4 +35,4 @@ index 651aa6b..f165a7a 100644
 +                };
 +        };
 +};
-
++
