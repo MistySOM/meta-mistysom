@@ -32,4 +32,8 @@ IMAGE_INSTALL_append = " gstreamer1.0-plugins-bad"
 IMAGE_INSTALL_append = " gstreamer1.0-plugins-ugly"
 IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 
+IMAGE_INSTALL_append = " mt7610u"
+IMAGE_INSTALL_append = " kernel-module-cfg80211"
+IMAGE_INSTALL_append = " kernel-module-mac80211"
+
 WHITELIST_GPL-3.0 += "vte-locale-en-gb"
