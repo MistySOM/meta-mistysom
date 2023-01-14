@@ -7,7 +7,7 @@ LICENSE = "MIT"
 inherit core-image features_check
 inherit extrausers
 
-DISTRO_FEATURES = "x11 opengl"
+REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
 ##Set rootfs  to 200MiB by default
 #IMAGE_OVERHEAD_FACTOR ?= "1.0"
