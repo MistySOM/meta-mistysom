@@ -1,13 +1,14 @@
 diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
-index 651aa6b..f165a7a 100644
+index bc2af6c..a6ff8c4 100644
 --- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
 +++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
-@@ -17,3 +17,33 @@
+@@ -16,3 +16,35 @@
+ 	model = "Renesas SMARC EVK based on r9a07g044l2";
  	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
  };
- 
++
 +&i2c3 {
-+        gpio-mistysom: i2c_gpio_expander@20{
++        i2c_gpio_expander@20 {
 +                #gpio-cells = <2>;
 +                #interrupt-cells = <2>;
 +                compatible = "semtech,sx1502q";
@@ -20,7 +21,7 @@ index 651aa6b..f165a7a 100644
 +                        bias-pull-up;
 +                };
 +        };
-+        gpio-mistycarrier: i2c_gpio_expander@21{
++        i2c_gpio_expander@21 {
 +                #gpio-cells = <2>;
 +                #interrupt-cells = <2>;
 +                compatible = "semtech,sx1502q";
@@ -34,5 +35,6 @@ index 651aa6b..f165a7a 100644
 +                };
 +        };
 +};
++
 +
 +
