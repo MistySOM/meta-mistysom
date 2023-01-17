@@ -38,6 +38,7 @@ IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 IMAGE_INSTALL_append = " iw"
 IMAGE_INSTALL_append = " wpa-supplicant"
 IMAGE_INSTALL_append = " dhcpcd"
-IMAGE_INSTALL_append = " linux-firmware" # Takes ~300 MB
+# Notice: Having linux-firmware packages takes ~300 MB of the rootfs
+IMAGE_INSTALL_append = " linux-firmware"
 
 WHITELIST_GPL-3.0 += "vte-locale-en-gb"
