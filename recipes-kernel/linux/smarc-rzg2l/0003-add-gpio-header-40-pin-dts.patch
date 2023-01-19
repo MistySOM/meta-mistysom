@@ -18,7 +18,7 @@ index bc2af6c..a203b55 100644
 +    /delete-node/ scif3;
 +    /delete-node/ adv7535;
 +    /delete-node/ poegd;
-+    /delete-node/ gpt4;
++
 +
 +    gpio-hdr-pin11 {
 +        gpio-hog;
