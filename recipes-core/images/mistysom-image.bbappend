@@ -10,6 +10,7 @@ IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " phytool"
 IMAGE_INSTALL_append = " ethtool"
 IMAGE_INSTALL_append = " mdio-tools"
+IMAGE_INSTALL_append = " rtmpdump"
 
 IMAGE_INSTALL_append = " xserver-xorg-xvfb"
 
