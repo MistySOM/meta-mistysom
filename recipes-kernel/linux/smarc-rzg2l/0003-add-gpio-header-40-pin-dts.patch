@@ -1,8 +1,8 @@
 diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
-index bc2af6c..a2ac575 100644
+index bc2af6c..482601b 100644
 --- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
 +++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
-@@ -16,3 +16,146 @@
+@@ -16,3 +16,148 @@
  	model = "Renesas SMARC EVK based on r9a07g044l2";
  	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
  };
@@ -20,14 +20,6 @@ index bc2af6c..a2ac575 100644
 +    /delete-node/ poegd;
 +    /delete-node/ sdhi0;
 +    
-+    &eth0 {
-+        status = "disabled";
-+    };
-+    
-+    &gpt4 {
-+        status = "disabled";
-+    };
-+
 +    gpio-hdr-pin11 {
 +        gpio-hog;
 +        gpios = <RZG2L_GPIO(42, 3) GPIO_ACTIVE_HIGH>;
@@ -50,7 +42,7 @@ index bc2af6c..a2ac575 100644
 +        gpio-hog;
 +        gpios = <RZG2L_GPIO(48, 0) GPIO_ACTIVE_HIGH>;
 +        output-high;
-+        line-name = "gpio_hdr_pin11";
++        line-name = "gpio_hdr_pin19";
 +        power-source = <3300>;
 +        status = "okay";
 +    };
@@ -146,6 +138,16 @@ index bc2af6c..a2ac575 100644
 +    };
 +
 +};
++
++&eth0 {
++    status = "disabled";
++};
++    
++&gpt4 {
++    status = "disabled";
++};
++
++
 +
 +
 +
