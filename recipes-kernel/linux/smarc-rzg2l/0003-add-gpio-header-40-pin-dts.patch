@@ -1,8 +1,8 @@
 diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
-index bc2af6c..482601b 100644
+index bc2af6c..15132e1 100644
 --- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
 +++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
-@@ -16,3 +16,148 @@
+@@ -16,3 +16,135 @@
  	model = "Renesas SMARC EVK based on r9a07g044l2";
  	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
  };
@@ -21,7 +21,6 @@ index bc2af6c..482601b 100644
 +    /delete-node/ sdhi0;
 +    
 +    gpio-hdr-pin11 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(42, 3) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin11";
@@ -30,7 +29,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin13 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(42, 4) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin13";
@@ -39,7 +37,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin19 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(48, 0) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin19";
@@ -48,7 +45,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin21 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(48, 1) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin21";
@@ -57,7 +53,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin23 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(48, 3) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin23";
@@ -66,7 +61,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin25 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(48, 4) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin25";
@@ -75,7 +69,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin33 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(0, 0) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin33";
@@ -84,7 +77,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin34 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(43, 0) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin34";
@@ -93,7 +85,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin35 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(0, 1) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin35";
@@ -102,7 +93,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin36 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(43, 1) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin36";
@@ -111,7 +101,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin37 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(1, 0) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin37";
@@ -120,7 +109,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin38 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(43, 2) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin38";
@@ -129,7 +117,6 @@ index bc2af6c..482601b 100644
 +    };
 +
 +    gpio-hdr-pin40 {
-+        gpio-hog;
 +        gpios = <RZG2L_GPIO(43, 3) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin40";
