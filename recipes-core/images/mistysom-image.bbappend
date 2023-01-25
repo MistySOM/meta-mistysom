@@ -38,6 +38,12 @@ IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 # For Wifi
 IMAGE_INSTALL_append = " iw"
 IMAGE_INSTALL_append = " dhcpcd"
+IMAGE_INSTALL_append = " sterling-supplicant-lwb"
+IMAGE_INSTALL_append = " wireless-regdb-static"
+# WiFi Module Laird Sterling-LWB5+ (Disable other WiFi modules because this module compiles a different cfg80211.ko)
+IMAGE_INSTALL_append = " lwb5plus-sdio-div-firmware"
+IMAGE_INSTALL_append = " kernel-module-lwb5p-backports-laird"
+IMAGE_FEATURES_remove = "tools-profile tools-debug tools-testapps"
 # WiFi Module Archer T2UH
 IMAGE_INSTALL_append = " linux-firmware-mt7650"
 IMAGE_INSTALL_append = " kernel-module-mt76x0u"
