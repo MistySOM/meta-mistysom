@@ -1,4 +1,4 @@
-CORE_IMAGE_BASE_INSTALL += "kernel-modules gtk+3-demo clutter-1.0-examples"
+CORE_IMAGE_BASE_INSTALL += "gtk+3-demo clutter-1.0-examples"
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'matchbox-terminal', '', d)}"
 IMAGE_INSTALL_append = " python3"
 IMAGE_INSTALL_append = " python3-datetime"
@@ -12,6 +12,7 @@ IMAGE_INSTALL_append = " ethtool"
 
 # For Display
 IMAGE_INSTALL_append = " xserver-xorg-xvfb"
+WHITELIST_GPL-3.0 += "vte-locale-en-gb"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
@@ -36,10 +37,12 @@ IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 
 # For Wifi
 IMAGE_INSTALL_append = " iw"
-IMAGE_INSTALL_append = " wpa-supplicant"
 IMAGE_INSTALL_append = " dhcpcd"
-# Notice: Having linux-firmware packages takes ~300 MB of the rootfs
-IMAGE_INSTALL_append = " linux-firmware"
-IMAGE_INSTALL_append = " rtl8821au"
+# WiFi Module Archer T2UH
+IMAGE_INSTALL_append = " linux-firmware-mt7650"
+IMAGE_INSTALL_append = " kernel-module-mt76x0u"
+# WiFi Module Archer T2U Plus
+IMAGE_INSTALL_append = " kernel-module-rtl8821au"
 
-WHITELIST_GPL-3.0 += "vte-locale-en-gb"
+# For eMMC flashing
+IMAGE_INSTALL_append = " e2fsprogs"
