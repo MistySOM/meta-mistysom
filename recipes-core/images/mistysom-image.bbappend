@@ -40,5 +40,6 @@ IMAGE_INSTALL_append = " wpa-supplicant"
 IMAGE_INSTALL_append = " dhcpcd"
 # Notice: Having linux-firmware packages takes ~300 MB of the rootfs
 IMAGE_INSTALL_append = " linux-firmware"
+IMAGE_INSTALL_append = " rtl8821au"
 
 WHITELIST_GPL-3.0 += "vte-locale-en-gb"
