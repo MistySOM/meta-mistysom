@@ -1,0 +1,10 @@
+[Unit]
+Description=RTMP Server Service
+Wants=network.target
+
+[Service]
+ExecStart=/usr/sbin/rtmpsrv
+StandardOutput=file:/var/log/rtmpsrv.log
+
+[Install]
+WantedBy=multi-user.target

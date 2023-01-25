@@ -13,6 +13,7 @@ IMAGE_INSTALL_append = " ethtool"
 # For Display
 IMAGE_INSTALL_append = " xserver-xorg-xvfb"
 IMAGE_INSTALL_append = " ffmpeg"
+IMAGE_INSTALL_append = " rtmpdump"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
