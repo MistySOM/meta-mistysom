@@ -45,10 +45,10 @@ IMAGE_INSTALL_append = " lwb5plus-sdio-div-firmware"
 IMAGE_INSTALL_append = " kernel-module-lwb5p-backports-laird"
 IMAGE_FEATURES_remove = "tools-profile tools-debug tools-testapps"
 # WiFi Module Archer T2UH
-IMAGE_INSTALL_append = " linux-firmware-mt7650"
-IMAGE_INSTALL_append = " kernel-module-mt76x0u"
+#IMAGE_INSTALL_append = " linux-firmware-mt7650"
+#IMAGE_INSTALL_append = " kernel-module-mt76x0u"
 # WiFi Module Archer T2U Plus
-IMAGE_INSTALL_append = " kernel-module-rtl8821au"
+#IMAGE_INSTALL_append = " kernel-module-rtl8821au"
 
 # For eMMC flashing
 IMAGE_INSTALL_append = " e2fsprogs"
