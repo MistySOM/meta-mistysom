@@ -35,6 +35,12 @@ IMAGE_INSTALL_append = " gstreamer1.0-plugins-bad"
 IMAGE_INSTALL_append = " gstreamer1.0-plugins-ugly"
 IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 
+# For Hardware Acceleration and Video Codecs
+IMAGE_INSTALL_append = " gstreamer1.0-plugin-vspmfilter"
+IMAGE_INSTALL_append = " gstreamer1.0-omx"
+IMAGE_INSTALL_append = " mmngr-user-module"
+IMAGE_INSTALL_append = " vspmif-user-module"
+
 # For Wifi
 IMAGE_INSTALL_append = " iw"
 IMAGE_INSTALL_append = " dhcpcd"
