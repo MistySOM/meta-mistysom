@@ -1,2 +1,5 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}:"
-SRC_URI += "file://0001-add-vsc8531-userspace-dts.patch"
+SRC_URI += " \
+    file://0001-add-vsc8531-userspace-dts.patch \
+    file://0002-edit-sdhi_pins_uhs-power-source.patch \
+"
