@@ -39,7 +39,11 @@ IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 IMAGE_INSTALL_append = " gstreamer1.0-plugin-vspmfilter"
 IMAGE_INSTALL_append = " gstreamer1.0-omx"
 IMAGE_INSTALL_append = " mmngr-user-module"
+IMAGE_INSTALL_append = " kernel-module-mmngr"
+IMAGE_INSTALL_append = " kernel-module-mmngrbuf"
 IMAGE_INSTALL_append = " vspmif-user-module"
+IMAGE_INSTALL_append = " kernel-module-vspm"
+IMAGE_INSTALL_append = " kernel-module-vspmif"
 
 # For Wifi
 IMAGE_INSTALL_append = " iw"
