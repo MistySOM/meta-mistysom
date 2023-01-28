@@ -44,6 +44,7 @@ IMAGE_INSTALL_append = " vspmif-user-module"
 # For Wifi
 IMAGE_INSTALL_append = " iw"
 IMAGE_INSTALL_append = " dhcpcd"
+IMAGE_INSTALL_append = " wpa-supplicant"
 # WiFi Module Archer T2UH
 IMAGE_INSTALL_append = " linux-firmware-mt7650"
 IMAGE_INSTALL_append = " kernel-module-mt76x0u"
