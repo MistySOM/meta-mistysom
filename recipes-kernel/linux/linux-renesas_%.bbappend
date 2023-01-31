@@ -2,4 +2,5 @@ FILESEXTRAPATHS_prepend := "${THISDIR}:"
 SRC_URI += "file://0001-add-vsc8531-userspace-dts.patch"
 SRC_URI += "file://0002-add-sx150x-port-expander-dts.patch"
 SRC_URI += "file://0003-add-gpio-header-40-pin-dts.patch"
+SRC_URI += "file://0004-add-RSPI0-port-to-40-pin-header.patch"
 

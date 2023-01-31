@@ -1,7 +1,7 @@
 diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
 index bc2af6c..92211a4 100644
---- a/r9a07g044l2-smarc.dts.orig
-+++ b/r9a07g044l2-smarc.dts
+--- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
 @@ -16,3 +16,34 @@
  	model = "Renesas SMARC EVK based on r9a07g044l2";
  	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
