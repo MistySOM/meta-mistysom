@@ -1,0 +1,39 @@
+diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
+index bc2af6c..92211a4 100644
+--- a/r9a07g044l2-smarc.dts.orig
++++ b/r9a07g044l2-smarc.dts
+@@ -16,3 +16,34 @@
+ 	model = "Renesas SMARC EVK based on r9a07g044l2";
+ 	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
+ };
++
++&pinctrl {
++	spi0_pins: spi0 {
++		pinmux = <RZG2L_PORT_PINMUX(43, 0, 1)>, /* RSPI0_CK clock input/output */
++			 <RZG2L_PORT_PINMUX(43, 1, 1)>, /* RSPI0_MOSI */
++			 <RZG2L_PORT_PINMUX(43, 2, 1)>, /* RSPI0_MISO */
++			 <RZG2L_PORT_PINMUX(43, 3, 1)>; /* RSPI0_SSL chip select */
++	};
++};
++
++&spi0 {
++	pinctrl-0 = <&spi0_pins>;
++	pinctrl-names = "default";
++	dmas = <&dmac 0x2e95>, <&dmac 0x2e96>;
++	dma-names = "tx", "rx";
++
++	status = "okay";
++
++    spidev1_0: spidev1@0 {
++        compatible = "linux,spidev";
++        reg = <0>;
++        spi-max-frequency = <40000000>;
++    };
++};
++
++
++
++
++
++
++
