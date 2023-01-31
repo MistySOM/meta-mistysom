@@ -1,0 +1,15 @@
+diff --git a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
+index 3c5874494d99..c54169f32cd0 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
+@@ -39,3 +39,10 @@ phy1: ethernet-phy@7 {
+                 vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
+         };
+ };
++
++&pinctrl {
++    /delete-node/ gpio-sd0-pwr-en-hog;
++    /delete-node/ sd0-dev-sel-hog;
++    /delete-node/ sd1-pwr-en-hog;
++};
++

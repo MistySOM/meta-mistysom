@@ -1,4 +1,4 @@
-CORE_IMAGE_BASE_INSTALL += "gtk+3-demo clutter-1.0-examples"
+CORE_IMAGE_BASE_INSTALL += "pv gtk+3-demo clutter-1.0-examples"
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'matchbox-terminal', '', d)}"
 IMAGE_INSTALL_append = " python3"
 IMAGE_INSTALL_append = " python3-datetime"
