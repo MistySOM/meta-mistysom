@@ -1,0 +1,36 @@
+diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
+index bc2af6c..3c83a89 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
+@@ -16,3 +16,31 @@
+ 	model = "Renesas SMARC EVK based on r9a07g044l2";
+ 	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
+ };
++            i
++/*
++ * Enable SCIF2 on MistySOM carrier J4 pins 19 (SCIF2_TXD), 21(SCIF2_RXD), 23(SCIF2_CTS), 25 (SCIF2_RTS)
++ */
++
++&pinctrl {
++	scif2_pins: scif2 {
++		pinmux = <RZG2L_PORT_PINMUX(48, 0, 1)>, /* TxD */
++			 <RZG2L_PORT_PINMUX(48, 1, 1)>, /* RxD */
++			 <RZG2L_PORT_PINMUX(48, 3, 1)>, /* CTS# */
++			 <RZG2L_PORT_PINMUX(48, 4, 1)>; /* RTS# */
++	};
++};
++
++&scif2 {
++	pinctrl-0 = <&scif2_pins>;
++	pinctrl-names = "default";
++
++	uart-has-rtscts;
++	status = "okay";
++};
++
++
++
++
++
++
++

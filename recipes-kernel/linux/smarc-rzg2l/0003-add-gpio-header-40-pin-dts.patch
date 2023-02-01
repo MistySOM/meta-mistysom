@@ -1,8 +1,8 @@
 diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
-index bc2af6c..15132e1 100644
+index bc2af6c..718e095 100644
 --- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
 +++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
-@@ -16,3 +16,135 @@
+@@ -16,3 +16,101 @@
  	model = "Renesas SMARC EVK based on r9a07g044l2";
  	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
  };
@@ -14,8 +14,6 @@ index bc2af6c..15132e1 100644
 +    /delete-node/ sd0-dev-sel-hog;
 +    /delete-node/ sd1-pwr-en-hog;
 +    /delete-node/ i2c2;
-+    /delete-node/ scif2;
-+    /delete-node/ scif3;
 +    /delete-node/ adv7535;
 +    /delete-node/ poegd;
 +    /delete-node/ sdhi0;
@@ -32,38 +30,6 @@ index bc2af6c..15132e1 100644
 +        gpios = <RZG2L_GPIO(42, 4) GPIO_ACTIVE_HIGH>;
 +        output-high;
 +        line-name = "gpio_hdr_pin13";
-+        power-source = <3300>;
-+        status = "okay";
-+    };
-+
-+    gpio-hdr-pin19 {
-+        gpios = <RZG2L_GPIO(48, 0) GPIO_ACTIVE_HIGH>;
-+        output-high;
-+        line-name = "gpio_hdr_pin19";
-+        power-source = <3300>;
-+        status = "okay";
-+    };
-+
-+    gpio-hdr-pin21 {
-+        gpios = <RZG2L_GPIO(48, 1) GPIO_ACTIVE_HIGH>;
-+        output-high;
-+        line-name = "gpio_hdr_pin21";
-+        power-source = <3300>;
-+        status = "okay";
-+    };
-+
-+    gpio-hdr-pin23 {
-+        gpios = <RZG2L_GPIO(48, 3) GPIO_ACTIVE_HIGH>;
-+        output-high;
-+        line-name = "gpio_hdr_pin23";
-+        power-source = <3300>;
-+        status = "okay";
-+    };
-+
-+    gpio-hdr-pin25 {
-+        gpios = <RZG2L_GPIO(48, 4) GPIO_ACTIVE_HIGH>;
-+        output-high;
-+        line-name = "gpio_hdr_pin25";
 +        power-source = <3300>;
 +        status = "okay";
 +    };
