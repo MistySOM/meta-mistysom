@@ -1,4 +1,4 @@
-CORE_IMAGE_BASE_INSTALL += "gtk+3-demo clutter-1.0-examples"
+CORE_IMAGE_BASE_INSTALL += "pv kernel-modules gtk+3-demo clutter-1.0-examples"
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'matchbox-terminal', '', d)}"
 IMAGE_INSTALL_append = " python3"
 IMAGE_INSTALL_append = " python3-datetime"
@@ -38,10 +38,11 @@ IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 # For Hardware Acceleration and Video Codecs
 IMAGE_INSTALL_append = " gstreamer1.0-plugin-vspmfilter"
 IMAGE_INSTALL_append = " gstreamer1.0-omx"
+IMAGE_INSTALL_append = " omx-user-module"
 IMAGE_INSTALL_append = " mmngr-user-module"
+IMAGE_INSTALL_append = " vspmif-user-module"
 IMAGE_INSTALL_append = " kernel-module-mmngr"
 IMAGE_INSTALL_append = " kernel-module-mmngrbuf"
-IMAGE_INSTALL_append = " vspmif-user-module"
 IMAGE_INSTALL_append = " kernel-module-vspm"
 IMAGE_INSTALL_append = " kernel-module-vspmif"
 
