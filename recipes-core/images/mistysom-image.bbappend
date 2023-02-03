@@ -10,9 +10,7 @@ IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " phytool"
 IMAGE_INSTALL_append = " ethtool"
 IMAGE_INSTALL_append = " can-utils"
-IMAGE_INSTALL_append = " can-utils-dev"
-IMAGE_INSTALL_append = " libsocketcan2"
-IMAGE_INSTALL_append = " libsocketcan-dev"
+IMAGE_INSTALL_append = " libsocketcan"
 
 IMAGE_INSTALL_append = " xserver-xorg-xvfb"
 
