@@ -11,6 +11,7 @@ IMAGE_INSTALL_append = " phytool"
 IMAGE_INSTALL_append = " ethtool"
 IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
+IMAGE_INSTALL_append = " iproute2"
 
 IMAGE_INSTALL_append = " xserver-xorg-xvfb"
 
