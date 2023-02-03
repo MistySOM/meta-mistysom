@@ -10,7 +10,7 @@ S = "${WORKDIR}/git"
 
 PV = "5.12.5.2"
 
-DEPENDS = "virtual/kernel"
+DEPENDS = "virtual/kernel bc-native"
 
 inherit module
 
