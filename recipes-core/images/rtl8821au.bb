@@ -10,7 +10,7 @@ S = "${WORKDIR}/git"
 
 PV = "5.12.5.2"
 
-DEPENDS = "virtual/kernel"
+DEPENDS = "virtual/kernel bc-native"
 
 inherit module
 
@@ -21,8 +21,8 @@ MODULES_INSTALL_TARGET="install"
 
 do_install () {
     install -d ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless
-    install -m 0644 ${B}/8821au.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless/8821au.ko
+    install -m 0644 ${B}/8821au.ko ${D}${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless/rtl8821au.ko
 }
 
-FILES:${PN} += "${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless/8821au.ko"
-RPROVIDES:${PN} += "kernel-module-8821au-${KERNEL_VERSION} kernel-module-rtl8821au kernel-module-8821au"
+FILES:${PN} += "${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless/rtl8821au.ko"
+RPROVIDES:${PN} += "kernel-module-rtl8821au-${KERNEL_VERSION} kernel-module-rtl8821au"
