@@ -25,4 +25,4 @@ do_install () {
 }
 
 FILES:${PN} += "${nonarch_base_libdir}/modules/${KERNEL_VERSION}/kernel/drivers/net/wireless/rtl8821au.ko"
-RPROVIDES:${PN} += "kernel-module-rtl8821au-${KERNEL_VERSION}"
+RPROVIDES:${PN} += "kernel-module-rtl8821au-${KERNEL_VERSION} kernel-module-rtl8821au"
