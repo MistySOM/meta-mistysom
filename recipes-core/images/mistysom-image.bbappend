@@ -1,5 +1,5 @@
-CORE_IMAGE_BASE_INSTALL += "pv kernel-modules gtk+3-demo clutter-1.0-examples"
-CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'matchbox-terminal', '', d)}"
+CORE_IMAGE_BASE_INSTALL += "pv kernel-modules weston weston-init weston-examples gtk+3-demo clutter-1.0-examples"
+CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
 IMAGE_INSTALL_append = " python3"
 IMAGE_INSTALL_append = " python3-datetime"
 IMAGE_INSTALL_append = " python3-io"
@@ -9,10 +9,6 @@ IMAGE_INSTALL_append = " usbutils"
 IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " phytool"
 IMAGE_INSTALL_append = " ethtool"
-
-# For Display
-IMAGE_INSTALL_append = " xserver-xorg-xvfb"
-WHITELIST_GPL-3.0 += "vte-locale-en-gb"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
