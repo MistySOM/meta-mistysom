@@ -9,6 +9,9 @@ IMAGE_INSTALL_append = " usbutils"
 IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " phytool"
 IMAGE_INSTALL_append = " ethtool"
+IMAGE_INSTALL_append = " can-utils"
+IMAGE_INSTALL_append = " libsocketcan"
+IMAGE_INSTALL_append = " iproute2"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
