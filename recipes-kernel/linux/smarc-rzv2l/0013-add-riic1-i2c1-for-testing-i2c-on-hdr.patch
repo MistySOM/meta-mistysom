@@ -1,0 +1,25 @@
+diff --git a/r9a07g054l2-smarc.dts.orig b/r9a07g054l2-smarc.dts
+index 938fbd4..1969d0e 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
+@@ -17,3 +17,20 @@
+ 	compatible = "renesas,smarc-evk", "renesas,r9a07g054l2", "renesas,r9a07g054";
+ };
+ 
++/*
++ * Enable RIIC1 on MistySOM carrier J4 pins 7 (SDA), 9(SCK)
++ */
++
++&pinctrl {
++    /delete-node/ hdmi@3d;
++    /delete-node/ adv7535;
++};
++
++&i2c1 {
++	pinctrl-0 = <&i2c1_pins>;
++	pinctrl-names = "default";
++	clock-frequency = <400000>;
++
++	status = "okay";
++};
++
