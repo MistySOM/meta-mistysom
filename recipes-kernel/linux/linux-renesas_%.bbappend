@@ -15,3 +15,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/smarc-rzv2l:"
 #SRC_URI += "file://0012-add-scif2-serial-port-for-uart-testing.patch"
 #SRC_URI += "file://0013-add-riic1-i2c1-for-testing-i2c-on-hdr.patch"
 #SRC_URI += "file://0014-add-can-ports.patch"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/Kconfigs:"
+SRC_URI += "file://WIRELESS.cfg"
