@@ -17,7 +17,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/smarc-rzv2l:"
 #SRC_URI += "file://0014-add-can-ports.patch"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/Kconfigs:"
-SRC_URI += "file://ATH6KL.cfg"
 SRC_URI += "file://FB_UDL.cfg"
 SRC_URI += "file://GT9271.cfg"
 SRC_URI += "file://RTL8152.cfg"
