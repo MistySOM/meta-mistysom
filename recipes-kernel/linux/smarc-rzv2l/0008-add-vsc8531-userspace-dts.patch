@@ -1,8 +1,8 @@
 diff --git a/r9a07g054l2-smarc.dts.orig b/r9a07g054l2-smarc.dts
-index 651aa6b..f165a7a 100644
+index 938fbd4..4a17716 100644
 --- a/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
 +++ b/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
-@@ -11,6 +11,7 @@
+@@ -11,9 +11,33 @@
  #include "rzg2l-smarc-pinfunction.dtsi"
  #include "rz-smarc-common.dtsi"
  #include "rzg2l-smarc.dtsi"
@@ -10,11 +10,9 @@ index 651aa6b..f165a7a 100644
  
  / {
  	model = "Renesas SMARC EVK based on r9a07g054l2";
-@@ -46,3 +47,25 @@
- 	/delete-node/ sd0-dev-sel-hog;
- 	/delete-node/ sd1-pwr-en-hog;
+ 	compatible = "renesas,smarc-evk", "renesas,r9a07g054l2", "renesas,r9a07g054";
  };
-+
+ 
 +&eth0 {
 +        phy0: ethernet-phy@7 {
 +                compatible = "ethernet-phy-ieee802.3-c45";
@@ -36,3 +34,5 @@ index 651aa6b..f165a7a 100644
 +                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
 +        };
 +};
++
++
