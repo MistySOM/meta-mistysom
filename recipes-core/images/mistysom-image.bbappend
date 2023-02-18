@@ -54,3 +54,7 @@ IMAGE_INSTALL_append = " kernel-module-rtl8821au"
 
 # For eMMC flashing
 IMAGE_INSTALL_append = " e2fsprogs"
+
+# VNC server
+IMAGE_INSTALL_append = " libvncserver"
+
