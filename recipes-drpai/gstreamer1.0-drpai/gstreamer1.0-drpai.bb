@@ -2,8 +2,9 @@ SUMMARY = "GStreamer DRP-AI plugin"
 SECTION = "multimedia"
 LICENSE = "MIT"
 SRC_URI = "git://github.com/MistySOM/gstreamer1.0-drpai.git;branch=main"
-SRCREV = "b7cd0e7e0253f397c80bfb5b930369d90bb0491e"
+SRCREV = "735589a001c18e0ce005498fbb81f9a8f200051c"
 LIC_FILES_CHKSUM = "file://COPYING.MIT;md5=bba6cdb9c2b03c849ed4975ed9ed90dc"
+MESON_BUILDTYPE = "release"
 
 inherit meson
 
