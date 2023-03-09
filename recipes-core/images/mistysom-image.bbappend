@@ -1,4 +1,4 @@
-CORE_IMAGE_BASE_INSTALL += "pv kernel-modules weston weston-init weston-examples gtk+3-demo clutter-1.0-examples"
+CORE_IMAGE_BASE_INSTALL += "pv htop kernel-modules weston weston-init weston-examples gtk+3-demo clutter-1.0-examples"
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
 IMAGE_INSTALL_append = " python3"
 IMAGE_INSTALL_append = " python3-datetime"
