@@ -1,6 +1,6 @@
 SUMMARY = "MistySOM image."
 
-IMAGE_FEATURES += "splash package-management ssh-server-dropbear hwcodecs packagegroup-core-boot ${CORE_IMAGE_EXTRA_INSTALL}"
+IMAGE_FEATURES += "splash package-management ssh-server-dropbear hwcodecs"
 
 LICENSE = "MIT"
 
@@ -18,5 +18,3 @@ REQUIRED_DISTRO_FEATURES = "wayland"
 #    usermod -P 'toor' root \
 #    "
 
-CORE_IMAGE_BASE_INSTALL += "weston weston-init weston-examples gtk+3-demo clutter-1.0-examples"
-CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
