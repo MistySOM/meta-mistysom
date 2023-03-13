@@ -1,6 +1,6 @@
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
 FILESEXTRAPATHS_prepend := "${THISDIR}/smarc-rzg2l:"
-#SRC_URI += "file://0001-add-vsc8531-userspace-dts.patch"
+SRC_URI += "file://0001-add-vsc8531-userspace-dts.patch"
 #SRC_URI += "file://0002-add-sx150x-port-expander-dts.patch"
 #SRC_URI += "file://0003-add-gpio-header-40-pin-dts.patch"
 #SRC_URI += "file://0004-add-RSPI0-port-to-40-pin-header.patch"
