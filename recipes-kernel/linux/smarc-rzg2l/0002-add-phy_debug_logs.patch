@@ -1,4 +1,4 @@
-diff --git a/of_mdio.c~orig b/of_mdio.c
+diff --git a/of_mdio.c b/of_mdio.c
 index 4daf94bb..8ce36727 100644
 --- a/drivers/net/mdio/of_mdio.c
 +++ b/drivers/net/mdio/of_mdio.c
