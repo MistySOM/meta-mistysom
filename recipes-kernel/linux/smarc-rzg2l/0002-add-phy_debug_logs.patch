@@ -1,15 +1,22 @@
-diff --git a/of_mdio.c~orig b/of_mdio.c
-index 4daf94bb..8ce36727 100644
---- a/of_mdio.c~orig
-+++ b/of_mdio.c
-@@ -286,8 +286,10 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
+diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+index ea0bf13e8ac3..e2cd42dd373f 100644
+--- a/drivers/net/mdio/of_mdio.c
++++ b/drivers/net/mdio/of_mdio.c
+@@ -284,10 +284,14 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
+            continue;
+        }
  
- 		if (of_mdiobus_child_is_phy(child))
- 			rc = of_mdiobus_register_phy(mdio, child, addr);
-+			printk("of_mdiobus_child_is_phy returned true, expected! \nof_mdiobus_register_phy() rc %d", rc);
- 		else
- 			rc = of_mdiobus_register_device(mdio, child, addr);
-+			printk("of_mdiobus_child_is_phy returned false, not expected! \nof_mdiobus_register_phy()rc %d\n", rc);
+-       if (of_mdiobus_child_is_phy(child))
++       if (of_mdiobus_child_is_phy(child)) {
+            rc = of_mdiobus_register_phy(mdio, child, addr);
+-       else
++           printk("of_mdiobus_child_is_phy returned true, expected! \nof_mdiobus_register_phy() rc %d", rc);
++       }
++       else {
+            rc = of_mdiobus_register_device(mdio, child, addr);
++           printk("of_mdiobus_child_is_phy returned true, expected! \nof_mdiobus_register_phy() rc %d", rc);
++       }
  
- 		if (rc == -ENODEV)
- 			dev_err(&mdio->dev,
+        if (rc == -ENODEV)
+            dev_err(&mdio->dev,
+
