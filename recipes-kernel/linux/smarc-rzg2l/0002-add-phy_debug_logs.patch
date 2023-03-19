@@ -1,19 +1,29 @@
 diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-index 4daf94bb..1446122b 100644
+index 4daf94bb56a5..08b77c0079e9 100644
 --- a/drivers/net/mdio/of_mdio.c
 +++ b/drivers/net/mdio/of_mdio.c
-@@ -284,10 +284,13 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
+@@ -119,6 +119,7 @@ static int of_mdiobus_register_phy(struct mii_bus *mdio,
+ 
+ 	is_c45 = of_device_is_compatible(child,
+ 					 "ethernet-phy-ieee802.3-c45");
++	printk("DEBUG: of_device_is_compatible() is_c45 %d\n",is_c45);
+ 
+ 	if (!is_c45 && !of_get_phy_id(child, &phy_id))
+ 		phy = phy_device_create(mdio, addr, phy_id, 0, NULL);
+@@ -284,10 +285,15 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
  			continue;
  		}
  
 -		if (of_mdiobus_child_is_phy(child))
 +		if (of_mdiobus_child_is_phy(child)) {
++			printk("DEBUG: of_mdiobus_child_is_phy returned true, expected!\n");
  			rc = of_mdiobus_register_phy(mdio, child, addr);
 -		else
-+			printk("of_mdiobus_child_is_phy returned true, expected! \nof_mdiobus_register_phy() rc %d", rc);
++			printf("DEBUG: of_mdiobus_register_phy() rc %d, addr %d", rc, addr);
 +		} else {
++			printk("DEBUG: of_mdiobus_child_is_phy returned false, not expected!\n");
  			rc = of_mdiobus_register_device(mdio, child, addr);
-+			printk("of_mdiobus_child_is_phy returned false, not expected! \nof_mdiobus_register_phy()rc %d\n", rc);
++			printk("DEBUG: of_mdiobus_register_device()rc %d\n", rc);
 +		}
  
  		if (rc == -ENODEV)
