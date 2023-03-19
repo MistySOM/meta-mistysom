@@ -1,4 +1,4 @@
-CORE_IMAGE_BASE_INSTALL += "pv kernel-modules weston weston-init weston-examples gtk+3-demo clutter-1.0-examples"
+CORE_IMAGE_BASE_INSTALL += "pv htop kernel-modules weston weston-init weston-examples gtk+3-demo clutter-1.0-examples"
 CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
 IMAGE_INSTALL_append = " python3"
 IMAGE_INSTALL_append = " python3-datetime"
@@ -7,9 +7,8 @@ IMAGE_INSTALL_append = " python3-core"
 IMAGE_INSTALL_append = " python3-multiprocessing"
 IMAGE_INSTALL_append = " usbutils"
 IMAGE_INSTALL_append = " usbutils-python"
-IMAGE_INSTALL_append = " phytool"
-IMAGE_INSTALL_append = " ethtool"
-IMAGE_INSTALL_append = " mdio-tools"
+IMAGE_INSTALL_append = " evdi"
+WHITELIST_GPL-3.0 += "vte-locale-en-gb"
 IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
 IMAGE_INSTALL_append = " iproute2"
@@ -47,11 +46,19 @@ IMAGE_INSTALL_append = " vspmif-user-module kernel-module-vspm kernel-module-vsp
 IMAGE_INSTALL_append = " iw"
 IMAGE_INSTALL_append = " dhcpcd"
 IMAGE_INSTALL_append = " wpa-supplicant"
+
 # WiFi Module Archer T2UH
 IMAGE_INSTALL_append = " linux-firmware-mt7650"
 IMAGE_INSTALL_append = " kernel-module-mt76x0u"
+
 # WiFi Module Archer T2U Plus
 IMAGE_INSTALL_append = " kernel-module-rtl8821au"
 
 # For eMMC flashing
 IMAGE_INSTALL_append = " e2fsprogs"
+
+# For PHY bringup
+IMAGE_INSTALL_append = " phytool"
+IMAGE_INSTALL_append = " ethtool"
+IMAGE_INSTALL_append = " mdio-tools"
+IMAGE_INSTALL_append = " net-tools"
