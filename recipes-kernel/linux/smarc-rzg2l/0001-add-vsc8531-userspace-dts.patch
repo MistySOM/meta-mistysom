@@ -1,4 +1,5 @@
 diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
+://tvm.apache.org/)ed -i 's/renesas \\/&\n  ${TOPDIR}\/..\/meta-qt5-extra \\/' /home/yocto/rzg_vlp_v3.0.0/build/conf/bblayers.conf
 index bc2af6c..82ba67e 100644
 --- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
 +++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
@@ -14,24 +15,24 @@ index bc2af6c..82ba67e 100644
  };
 +
 +&eth0 {
-+        phy0: ethernet-phy@7 {
-+                compatible = "ethernet-phy-ieee802.3-c45";
-+                reg = <0>;
-+                vsc8531,vddmac          = <1800>;
-+                vsc8531,edge-slowdown   = <0>;
-+                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
-+                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
-+       };
++	phy0: ethernet-phy@7 {
++		compatible = "ethernet-phy-ieee802.3-c45";
++		reg = <0>;
++		vsc8531,vddmac          = <1800>;
++		vsc8531,edge-slowdown   = <0>;
++		vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
++		vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
++	};
 +};
 +
 +&eth1 {
-+        phy1: ethernet-phy@7 {
-+                compatible = "ethernet-phy-ieee802.3-c45";
-+                reg = <0>;
-+                vsc8531,vddmac          = <1800>;
-+                vsc8531,edge-slowdown   = <0>;
-+                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
-+                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
-+        };
++	phy1: ethernet-phy@7 {
++		compatible = "ethernet-phy-ieee802.3-c45";
++		reg = <0>;
++		vsc8531,vddmac          = <1800>;
++		vsc8531,edge-slowdown   = <0>;
++		vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
++		vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
++	};
 +};
 +
