@@ -1,5 +1,5 @@
 diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-index 4daf94bb56a5..08b77c0079e9 100644
+index 4daf94bb56a5..59f79a792617 100644
 --- a/drivers/net/mdio/of_mdio.c
 +++ b/drivers/net/mdio/of_mdio.c
 @@ -119,6 +119,7 @@ static int of_mdiobus_register_phy(struct mii_bus *mdio,
@@ -10,7 +10,14 @@ index 4daf94bb56a5..08b77c0079e9 100644
  
  	if (!is_c45 && !of_get_phy_id(child, &phy_id))
  		phy = phy_device_create(mdio, addr, phy_id, 0, NULL);
-@@ -284,10 +285,15 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
+@@ -279,15 +280,22 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
+ 	/* Loop over the child nodes and register a phy_device for each phy */
+ 	for_each_available_child_of_node(np, child) {
+ 		addr = of_mdio_parse_addr(&mdio->dev, child);
++		printk("DEBUG: HARDCODE ADDRESS TO 0 OR TESTING!\n");
++		addr = 0;
+ 		if (addr < 0) {
+ 			scanphys = true;
  			continue;
  		}
  
@@ -19,7 +26,7 @@ index 4daf94bb56a5..08b77c0079e9 100644
 +			printk("DEBUG: of_mdiobus_child_is_phy returned true, expected!\n");
  			rc = of_mdiobus_register_phy(mdio, child, addr);
 -		else
-+			printk("DEBUG: of_mdiobus_register_phy() rc %d, addr %d", rc, addr);
++			printf("DEBUG: of_mdiobus_register_phy() rc %d, addr %d", rc, addr);
 +		} else {
 +			printk("DEBUG: of_mdiobus_child_is_phy returned false, not expected!\n");
  			rc = of_mdiobus_register_device(mdio, child, addr);

@@ -14,7 +14,7 @@ index bc2af6c..82ba67e 100644
  };
 +
 +&eth0 {
-+        phy0: ethernet-phy@0 {
++        phy0: ethernet-phy@7 {
 +                compatible = "ethernet-phy-ieee802.3-c45";
 +                reg = <0>;
 +                vsc8531,vddmac          = <1800>;
@@ -25,7 +25,7 @@ index bc2af6c..82ba67e 100644
 +};
 +
 +&eth1 {
-+        phy1: ethernet-phy@0 {
++        phy1: ethernet-phy@7 {
 +                compatible = "ethernet-phy-ieee802.3-c45";
 +                reg = <0>;
 +                vsc8531,vddmac          = <1800>;
