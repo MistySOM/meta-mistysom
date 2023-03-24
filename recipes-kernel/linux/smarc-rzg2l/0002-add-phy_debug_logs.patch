@@ -1,5 +1,5 @@
 diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-index 4daf94bb56a5..59f79a792617 100644
+index 4daf94bb56a5..eaa68ce2f5bd 100644
 --- a/drivers/net/mdio/of_mdio.c
 +++ b/drivers/net/mdio/of_mdio.c
 @@ -119,6 +119,7 @@ static int of_mdiobus_register_phy(struct mii_bus *mdio,
@@ -14,7 +14,7 @@ index 4daf94bb56a5..59f79a792617 100644
  	/* Loop over the child nodes and register a phy_device for each phy */
  	for_each_available_child_of_node(np, child) {
  		addr = of_mdio_parse_addr(&mdio->dev, child);
-+		printk("DEBUG: HARDCODE ADDRESS TO 0 OR TESTING!\n");
++		printk("DEBUG: HARDCODE ADDRESS TO 0 FOR TESTING!\n");
 +		addr = 0;
  		if (addr < 0) {
  			scanphys = true;
@@ -35,3 +35,20 @@ index 4daf94bb56a5..59f79a792617 100644
  
  		if (rc == -ENODEV)
  			dev_err(&mdio->dev,
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index d2f6d8107595..4e4356c2572b 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -845,9 +845,10 @@ struct phy_device *get_phy_device(struct mii_bus *bus, int addr, bool is_c45)
+ 	c45_ids.mmds_present = 0;
+ 	memset(c45_ids.device_ids, 0xff, sizeof(c45_ids.device_ids));
+ 
+-	if (is_c45)
++	if (is_c45) {
+ 		r = get_phy_c45_ids(bus, addr, &c45_ids);
+-	else
++		printk("DEBUG: get_phy_c45_ids(%d, %d, %p) %d\n",bus,addr,&c45_ids,r);
++	} else
+ 		r = get_phy_c22_id(bus, addr, &phy_id);
+ 
+ 	if (r)
