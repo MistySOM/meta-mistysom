@@ -26,7 +26,7 @@ index 4daf94bb56a5..59f79a792617 100644
 +			printk("DEBUG: of_mdiobus_child_is_phy returned true, expected!\n");
  			rc = of_mdiobus_register_phy(mdio, child, addr);
 -		else
-+			printf("DEBUG: of_mdiobus_register_phy() rc %d, addr %d", rc, addr);
++			printk("DEBUG: of_mdiobus_register_phy() rc %d, addr %d", rc, addr);
 +		} else {
 +			printk("DEBUG: of_mdiobus_child_is_phy returned false, not expected!\n");
  			rc = of_mdiobus_register_device(mdio, child, addr);
