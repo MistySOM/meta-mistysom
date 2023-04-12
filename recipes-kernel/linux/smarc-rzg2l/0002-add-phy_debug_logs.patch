@@ -1,32 +1,21 @@
 diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-index 4daf94bb56a5..151b499216a7 100644
+index 4daf94bb56a5..eaa68ce2f5bd 100644
 --- a/drivers/net/mdio/of_mdio.c
 +++ b/drivers/net/mdio/of_mdio.c
-@@ -119,11 +119,14 @@ static int of_mdiobus_register_phy(struct mii_bus *mdio,
+@@ -119,6 +119,7 @@ static int of_mdiobus_register_phy(struct mii_bus *mdio,
  
  	is_c45 = of_device_is_compatible(child,
  					 "ethernet-phy-ieee802.3-c45");
-+	printk("DEBUG: of_device_is_compatible() is_c45: %d\n",is_c45);
++	printk("DEBUG: of_device_is_compatible() is_c45 %d\n",is_c45);
  
--	if (!is_c45 && !of_get_phy_id(child, &phy_id))
-+	if (!is_c45 && !of_get_phy_id(child, &phy_id)) {
+ 	if (!is_c45 && !of_get_phy_id(child, &phy_id))
  		phy = phy_device_create(mdio, addr, phy_id, 0, NULL);
-+	}
- 	else
- 		phy = get_phy_device(mdio, addr, is_c45);
-+		printk("DEBUG: phy %p\n",phy);
- 	if (IS_ERR(phy)) {
- 		if (mii_ts)
- 			unregister_mii_timestamper(mii_ts);
-@@ -279,15 +282,25 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
+@@ -279,15 +280,22 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
  	/* Loop over the child nodes and register a phy_device for each phy */
  	for_each_available_child_of_node(np, child) {
  		addr = of_mdio_parse_addr(&mdio->dev, child);
-+		printk("DEBUG: HARDCODE MDIO ADDRESS TO 0, FOR TESTING!\n");
-+		if (addr != 0) {// Check if was read from parse function, unless force it to 0
-+			printk("DEBUG: Force MDIO address to 0!\n");
-+			addr = 0;
-+		}
++		printk("DEBUG: HARDCODE ADDRESS TO 0 FOR TESTING!\n");
++		addr = 0;
  		if (addr < 0) {
  			scanphys = true;
  			continue;
@@ -46,76 +35,11 @@ index 4daf94bb56a5..151b499216a7 100644
  
  		if (rc == -ENODEV)
  			dev_err(&mdio->dev,
-@@ -302,8 +315,9 @@ int of_mdiobus_register(struct mii_bus *mdio, struct device_node *np)
- 
- 	/* auto scan for PHYs with empty reg property */
- 	for_each_available_child_of_node(np, child) {
--		/* Skip PHYs with reg property set */
--		if (of_find_property(child, "reg", NULL))
-+		printk("DEBUG: auto scan phy\n");
-+		/* Skip PHYs with reg property set, except when it's 99 */
-+		if (of_find_property(child, "reg", NULL) && addr != 99)
- 			continue;
- 
- 		for (addr = 0; addr < PHY_MAX_ADDR; addr++) {
 diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index 85f3cde5ffd0..8d26ef8652cb 100644
+index d2f6d8107595..4e4356c2572b 100644
 --- a/drivers/net/phy/phy_device.c
 +++ b/drivers/net/phy/phy_device.c
-@@ -647,8 +647,16 @@ static int phy_c45_probe_present(struct mii_bus *bus, int prtad, int devad)
- 	int stat2;
- 
- 	stat2 = mdiobus_c45_read(bus, prtad, devad, MDIO_STAT2);
-+	printk("DEBUG: mdiobus_c45_read(bus %d, prtad %d, devad %d , MDIO_STAT2): %d\n",bus, prtad, devad, stat2);
-+	stat2 = mdiobus_c45_read(bus, prtad, devad, MDIO_STAT2);
-+	printk("DEBUG: mdiobus_c45_read(bus %d, prtad %d, devad %d , MDIO_STAT2): %d\n",bus, prtad, devad, stat2);
-+	stat2 = mdiobus_c45_read(bus, prtad, devad, MDIO_STAT2);
-+	printk("DEBUG: mdiobus_c45_read(bus %d, prtad %d, devad %d , MDIO_STAT2): %d\n",bus, prtad, devad, stat2);
- 	if (stat2 < 0)
- 		return stat2;
-+	printk("DEBUG: stat2 %x MDIO_STAT2_DEVPRST %x ((stat2 & MDIO_STAT2_DEVPRST) %x\n",stat2, MDIO_STAT2_DEVPRST,(stat2 & MDIO_STAT2_DEVPRST));
-+	//printk("DEBUG: MANUELLY SETTING stat2 to 0x%x\n",MDIO_STAT2_DEVPRST_VAL);
-+	//stat2 = MDIO_STAT2_DEVPRST_VAL;
- 
- 	return (stat2 & MDIO_STAT2_DEVPRST) == MDIO_STAT2_DEVPRST_VAL;
- }
-@@ -715,6 +723,7 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
- 			 * compliant.
- 			 */
- 			ret = phy_c45_probe_present(bus, addr, i);
-+			printk("DEBUG: phy_c45_probe_present(bus %x, addr %d, i %d) %x\n",bus, addr,i, ret);
- 			if (ret < 0)
- 				return -EIO;
- 
-@@ -722,9 +731,12 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
- 				continue;
- 		}
- 		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
--		if (phy_reg < 0)
-+		printk("DEBUG: get_phy_c45_devs_in_pkg(bus %x, addr %d, i %d, devs_in_pkg %d): %d\n",bus, addr, i, &devs_in_pkg, phy_reg);
-+		if (phy_reg < 0) {
- 			return -EIO;
-+		}
- 	}
-+	printk("DEBUG: devs_in_pkg %x\n",devs_in_pkg);
- 
- 	if ((devs_in_pkg & 0x1fffffff) == 0x1fffffff) {
- 		/* If mostly Fs, there is no device there, then let's probe
-@@ -732,6 +744,7 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
- 		 * e.g. Cortina CS4315/CS4340 PHY.
- 		 */
- 		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
-+		printk("DEBUG: get_phy_c45_devs_in_pkg(bus %d, addr %d, 0, &devs_in_pkg %p) %d\n",bus, addr, devs_in_pkg, phy_reg);
- 		if (phy_reg < 0)
- 			return -EIO;
- 
-@@ -840,19 +853,24 @@ struct phy_device *get_phy_device(struct mii_bus *bus, int addr, bool is_c45)
- 	struct phy_c45_device_ids c45_ids;
- 	u32 phy_id = 0;
- 	int r;
-+	int i;
- 
- 	c45_ids.devices_in_package = 0;
+@@ -845,9 +845,10 @@ struct phy_device *get_phy_device(struct mii_bus *bus, int addr, bool is_c45)
  	c45_ids.mmds_present = 0;
  	memset(c45_ids.device_ids, 0xff, sizeof(c45_ids.device_ids));
  
@@ -124,30 +48,7 @@ index 85f3cde5ffd0..8d26ef8652cb 100644
  		r = get_phy_c45_ids(bus, addr, &c45_ids);
 -	else
 +		printk("DEBUG: get_phy_c45_ids(%d, %d, %p) %d\n",bus,addr,&c45_ids,r);
-+		for (i = 0; i < sizeof(c45_ids.device_ids); i++) {
-+			printk("DEBUG: phy_id %d i %d\n",phy_id, i);
-+		}
 +	} else
  		r = get_phy_c22_id(bus, addr, &phy_id);
  
  	if (r)
- 		return ERR_PTR(r);
--
-+	printk("DEBUG:phy_device_create(bus %d, addr %d, phy_id %d, is_c45 %d, c45_ids %p)",bus, addr, phy_id, is_c45, c45_ids);
- 	return phy_device_create(bus, addr, phy_id, is_c45, &c45_ids);
- }
- EXPORT_SYMBOL(get_phy_device);
-diff --git a/include/linux/of_mdio.h b/include/linux/of_mdio.h
-index f56c6a9230ac..a6e7dc099150 100644
---- a/include/linux/of_mdio.h
-+++ b/include/linux/of_mdio.h
-@@ -50,7 +50,8 @@ static inline int of_mdio_parse_addr(struct device *dev,
- 	}
- 
- 	/* A PHY must have a reg property in the range [0-31] */
--	if (addr >= PHY_MAX_ADDR) {
-+	/* insert 99 as exception for debugging */
-+	if (addr >= PHY_MAX_ADDR && addr != 99) {
- 		dev_err(dev, "%s PHY address %i is too large\n",
- 			np->full_name, addr);
- 		return -EINVAL;
