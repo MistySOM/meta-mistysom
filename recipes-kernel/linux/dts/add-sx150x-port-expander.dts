@@ -1,0 +1,30 @@
+&i2c3 {
+        i2c_gpio_expander@20 {
+                #gpio-cells = <2>;
+                #interrupt-cells = <2>;
+                compatible = "semtech,sx1502q";
+                reg = <0x20>;
+                gpio-controller;
+                pinctrl-names = "default";
+                pinctrl-0 = <&gpio1_cfg_pins>;
+                gpio1_cfg_pins: gpio1-cfg {
+                        pins = "gpio1";
+                        bias-pull-up;
+                };
+        };
+        i2c_gpio_expander@21 {
+                #gpio-cells = <2>;
+                #interrupt-cells = <2>;
+                compatible = "semtech,sx1502q";
+                reg = <0x21>;
+                gpio-controller;
+                pinctrl-names = "default";
+                pinctrl-0 = <&gpio2_cfg_pins>;
+                gpio2_cfg_pins: gpio2-cfg {
+                        pins = "gpio2";
+                        bias-pull-up;
+                };
+        };
+};
+
+
