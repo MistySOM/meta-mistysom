@@ -16,6 +16,9 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/smarc-rzv2l:"
 #SRC_URI += "file://0013-add-riic1-i2c1-for-testing-i2c-on-hdr.patch"
 #SRC_URI += "file://0014-add-can-ports.patch"
 
+FILESEXTRAPATHS_prepend := "${THISDIR}/smarc-rz:"
+SRC_URI += "file://0020-remove-sdhi1-uhs.patch"
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/Kconfigs:"
 SRC_URI += "file://CANBUS.cfg"
 SRC_URI += "file://FB_UDL.cfg"
