@@ -14,21 +14,17 @@ SRC_URI += "file://WIRELESS.cfg"
 FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
 SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
 
-do_patch_append() {
-    # Uncomment any patches here for which you wish to enable specific features for hardware testing
-    dts_patches=(
-        #${THISDIR}/dts/add-vsc8531-userspace.dts
-        #${THISDIR}/dts/add-sx150x-port-expander.dts
-        #${THISDIR}/dts/add-gpio-header-40-pin.dts
-        #${THISDIR}/dts/add-RSPI0-port-to-40-pin-header.dts
-        #${THISDIR}/dts/add-scif2-serial-port-for-uart-testing.dts
-        #${THISDIR}/dts/add-riic1-i2c1-for-testing-i2c-on-hdr.dts
-        #${THISDIR}/dts/add-can-ports.dts
-    )
+# Uncomment any patches here for which you wish to enable specific features for hardware testing
+#SRC_URI += "file://add-vsc8531-userspace.dts"
+#SRC_URI += "file://add-sx150x-port-expander.dts"
+#SRC_URI += "file://add-gpio-header-40-pin.dts"
+#SRC_URI += "file://add-RSPI0-port-to-40-pin-header.dts"
+#SRC_URI += "file://add-scif2-serial-port-for-uart-testing.dts"
+#SRC_URI += "file://add-riic1-i2c1-for-testing-i2c-on-hdr.dts"
+#SRC_URI += "file://add-can-ports.dts"
 
-    if [[ "${#dts_patches[@]}" -gt 0 && "${dts_patches[*]}" != *"#"* ]]; then
-        cat "${dts_patches[*]}" >> ${S}/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
-        cat "${dts_patches[*]}" >> ${S}/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
-    fi
+do_patch_append() {
+    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts || :
+    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts || :
 }
 
