@@ -1,21 +1,3 @@
-# Uncomment any patches here for which you wish to enable specific features for hardware testing
-FILESEXTRAPATHS_prepend := "${THISDIR}/smarc-rzg2l:"
-#SRC_URI += "file://0001-add-vsc8531-userspace-dts.patch"
-#SRC_URI += "file://0002-add-sx150x-port-expander-dts.patch"
-#SRC_URI += "file://0003-add-gpio-header-40-pin-dts.patch"
-#SRC_URI += "file://0004-add-RSPI0-port-to-40-pin-header.patch"
-#SRC_URI += "file://0005-add-scif2-serial-port-for-uart-testing.patch"
-#SRC_URI += "file://0006-add-riic1-i2c1-for-testing-i2c-on-hdr.patch"
-#SRC_URI += "file://0007-add-can-ports.patch"
-SRC_URI += "file://0008-remove-sdhi1-uhs-for-laird.patch"
-FILESEXTRAPATHS_prepend := "${THISDIR}/smarc-rzv2l:"
-#SRC_URI += "file://0008-add-vsc8531-userspace-dts.patch"
-#SRC_URI += "file://0009-add-sx150x-port-expander-dts.patch"
-#SRC_URI += "file://0010-add-gpio-header-40-pin-dts.patch"
-#SRC_URI += "file://0011-add-RSPI0-port-to-40-pin-header.patch"
-#SRC_URI += "file://0012-add-scif2-serial-port-for-uart-testing.patch"
-#SRC_URI += "file://0013-add-riic1-i2c1-for-testing-i2c-on-hdr.patch"
-#SRC_URI += "file://0014-add-can-ports.patch"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/Kconfigs:"
 SRC_URI += "file://CANBUS.cfg"
@@ -28,3 +10,21 @@ SRC_URI += "file://TLV320AIC23.cfg"
 SRC_URI += "file://USB_GADGET.cfg"
 SRC_URI += "file://VSC8531.cfg"
 SRC_URI += "file://WIRELESS.cfg"
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
+SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
+
+# Uncomment any patches here for which you wish to enable specific features for hardware testing
+#SRC_URI += "file://add-vsc8531-userspace.dts"
+#SRC_URI += "file://add-sx150x-port-expander.dts"
+#SRC_URI += "file://add-gpio-header-40-pin.dts"
+#SRC_URI += "file://add-RSPI0-port-to-40-pin-header.dts"
+#SRC_URI += "file://add-scif2-serial-port-for-uart-testing.dts"
+#SRC_URI += "file://add-riic1-i2c1-for-testing-i2c-on-hdr.dts"
+#SRC_URI += "file://add-can-ports.dts"
+
+do_patch_append() {
+    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts || :
+    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts || :
+}
+
