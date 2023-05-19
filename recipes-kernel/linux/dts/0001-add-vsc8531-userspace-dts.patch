@@ -1,22 +1,22 @@
-diff --git a/r9a07g054l2-smarc.dts.orig b/r9a07g054l2-smarc.dts
-index 938fbd4..4a17716 100644
---- a/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts
-@@ -11,9 +11,33 @@
+diff --git a/r9a07g044l2-smarc.dts.orig b/r9a07g044l2-smarc.dts
+index bc2af6c..82ba67e 100644
+--- a/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
++++ b/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts
+@@ -11,8 +11,32 @@
  #include "rzg2l-smarc-pinfunction.dtsi"
  #include "rz-smarc-common.dtsi"
  #include "rzg2l-smarc.dtsi"
 +#include <dt-bindings/net/mscc-phy-vsc8531.h>
  
  / {
- 	model = "Renesas SMARC EVK based on r9a07g054l2";
- 	compatible = "renesas,smarc-evk", "renesas,r9a07g054l2", "renesas,r9a07g054";
+ 	model = "Renesas SMARC EVK based on r9a07g044l2";
+ 	compatible = "renesas,smarc-evk", "renesas,r9a07g044l2", "renesas,r9a07g044";
  };
- 
++
 +&eth0 {
 +        phy0: ethernet-phy@7 {
-+                compatible = "ethernet-phy-ieee802.3-c45";
-+                reg = <7>;
++                compatible = "ethernet-phy-ieee802.3-c22";
++                reg = <0>;
 +                vsc8531,vddmac          = <1800>;
 +                vsc8531,edge-slowdown   = <0>;
 +                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
@@ -26,13 +26,12 @@ index 938fbd4..4a17716 100644
 +
 +&eth1 {
 +        phy1: ethernet-phy@7 {
-+                compatible = "ethernet-phy-ieee802.3-c45";
-+                reg = <7>;
++                compatible = "ethernet-phy-ieee802.3-c22";
++                reg = <0>;
 +                vsc8531,vddmac          = <1800>;
 +                vsc8531,edge-slowdown   = <0>;
 +                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
 +                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
 +        };
 +};
-+
 +

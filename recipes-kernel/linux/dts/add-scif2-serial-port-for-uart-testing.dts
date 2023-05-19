@@ -1,0 +1,21 @@
+/*
+ * Enable SCIF2 on MistySOM carrier J4 pins 19 (SCIF2_TXD), 21(SCIF2_RXD), 23(SCIF2_CTS), 25 (SCIF2_RTS)
+ */
+
+&pinctrl {
+	scif2_pins: scif2 {
+		pinmux = <RZG2L_PORT_PINMUX(48, 0, 1)>, /* TxD */
+			 <RZG2L_PORT_PINMUX(48, 1, 1)>, /* RxD */
+			 <RZG2L_PORT_PINMUX(48, 3, 1)>, /* CTS# */
+			 <RZG2L_PORT_PINMUX(48, 4, 1)>; /* RTS# */
+	};
+};
+
+&scif2 {
+	pinctrl-0 = <&scif2_pins>;
+	pinctrl-names = "default";
+
+	uart-has-rtscts;
+	status = "okay";
+};
+

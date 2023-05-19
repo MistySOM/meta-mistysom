@@ -1,0 +1,24 @@
+#include <dt-bindings/net/mscc-phy-vsc8531.h>
+
+&eth0 {
+        phy0: ethernet-phy@7 {
+                compatible = "ethernet-phy-ieee802.3-c45";
+                reg = <7>;
+                vsc8531,vddmac          = <1800>;
+                vsc8531,edge-slowdown   = <0>;
+                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
+                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
+       };
+};
+
+&eth1 {
+        phy1: ethernet-phy@7 {
+                compatible = "ethernet-phy-ieee802.3-c45";
+                reg = <7>;
+                vsc8531,vddmac          = <1800>;
+                vsc8531,edge-slowdown   = <0>;
+                vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
+                vsc8531,led-1-mode      = <VSC8531_LINK_100_ACTIVITY>;
+        };
+};
+

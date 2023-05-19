@@ -1,0 +1,17 @@
+/*
+ * Enable RIIC1 on MistySOM carrier J4 pins 7 (SDA), 9(SCK)
+ */
+
+&pinctrl {
+    /delete-node/ hdmi@3d;
+    /delete-node/ adv7535;
+};
+
+&i2c1 {
+	pinctrl-0 = <&i2c1_pins>;
+	pinctrl-names = "default";
+	clock-frequency = <400000>;
+
+	status = "okay";
+};
+

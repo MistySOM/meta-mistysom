@@ -1,0 +1,93 @@
+&pinctrl {
+    /delete-node/ can0-stb;
+    /delete-node/ can1-stb;
+    /delete-node/ gpio-sd0-pwr-en-hog;
+    /delete-node/ sd0-dev-sel-hog;
+    /delete-node/ sd1-pwr-en-hog;
+    /delete-node/ i2c2;
+    /delete-node/ adv7535;
+    /delete-node/ poegd;
+    /delete-node/ sdhi0;
+
+    gpio-hdr-pin11 {
+        gpios = <RZG2L_GPIO(42, 3) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin11";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin13 {
+        gpios = <RZG2L_GPIO(42, 4) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin13";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin33 {
+        gpios = <RZG2L_GPIO(0, 0) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin33";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin34 {
+        gpios = <RZG2L_GPIO(43, 0) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin34";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin35 {
+        gpios = <RZG2L_GPIO(0, 1) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin35";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin36 {
+        gpios = <RZG2L_GPIO(43, 1) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin36";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin37 {
+        gpios = <RZG2L_GPIO(1, 0) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin37";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin38 {
+        gpios = <RZG2L_GPIO(43, 2) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin38";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+    gpio-hdr-pin40 {
+        gpios = <RZG2L_GPIO(43, 3) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "gpio_hdr_pin40";
+        power-source = <3300>;
+        status = "okay";
+    };
+
+};
+
+&eth0 {
+    status = "disabled";
+};
+
+&gpt4 {
+    status = "disabled";
+};
+
