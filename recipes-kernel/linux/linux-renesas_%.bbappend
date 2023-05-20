@@ -12,12 +12,11 @@ SRC_URI += "file://WIRELESS.cfg"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
 SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
-SRC_URI += "file://0001-add-vsc8531-userspace-dts.patch"
+SRC_URI += "file://0008-add-vsc8531-userspace-dts.patch"
 SRC_URI += "file://0002-add-mistysom-phy-mode-change.patch"
 SRC_URI += "file://0006-remove-phy-interrupts-dts.patch"
 
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
-#SRC_URI += "file://add-vsc8531-userspace.dts"
 #SRC_URI += "file://add-sx150x-port-expander.dts"
 #SRC_URI += "file://add-gpio-header-40-pin.dts"
 #SRC_URI += "file://add-RSPI0-port-to-40-pin-header.dts"
