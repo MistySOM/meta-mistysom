@@ -1,4 +1,3 @@
-
 FILESEXTRAPATHS_prepend := "${THISDIR}/Kconfigs:"
 SRC_URI += "file://CANBUS.cfg"
 SRC_URI += "file://FB_UDL.cfg"
@@ -13,9 +12,9 @@ SRC_URI += "file://WIRELESS.cfg"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
 SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
+SRC_URI += "file://0002-add-vsc8531-ethernet.patch"
 
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
-#SRC_URI += "file://add-vsc8531-userspace.dts"
 #SRC_URI += "file://add-sx150x-port-expander.dts"
 #SRC_URI += "file://add-gpio-header-40-pin.dts"
 #SRC_URI += "file://add-RSPI0-port-to-40-pin-header.dts"
