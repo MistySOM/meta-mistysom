@@ -26,8 +26,9 @@ jobs:
     
     - run: |
         rm -rf rzg2l/Build/meta-mistysom
-        mv meta-mistysom rzg2l/Build
-        mv rzg2l/* .
+        cp meta-mistysom rzg2l/Build
+        cp rzg2l/* .
+        rm -rf meta-mistysom rzg2l        
     
     - name: Build the Docker image
       run: cd Build && ./build.sh; 
