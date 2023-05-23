@@ -13,21 +13,14 @@ jobs:
   build-yocto:
     runs-on: self-hosted
     
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        path: meta-mistysom
-
+    steps:    
     - uses: actions/checkout@v3
       with:
         repository: MistySOM/rzg2l
-        path: rzg2l
-    
-    - run: |
-        rm -rf rzg2l/Build/meta-mistysom/*
-        cp -r meta-mistysom rzg2l/Build
-        cp -r rzg2l/* .
-        rm -rf meta-mistysom rzg2l        
+
+    - uses: actions/checkout@v3
+      with:
+        path: Build/meta-mistysom
     
     - name: Build the Docker image
       run: cd Build && ./build.sh; 
