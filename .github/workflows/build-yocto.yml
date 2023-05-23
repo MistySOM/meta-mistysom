@@ -17,22 +17,27 @@ jobs:
     - uses: actions/checkout@v3
       with:
         repository: MistySOM/rzg2l
+        path: rzg2l
 
     - uses: actions/checkout@v3
       with:
-        path: Build/meta-mistysom
-    
+        path: meta-mistysom
+
+    - run: |
+        rm -rf $GITHUB_WORKSPACE/rzg2l/Build/meta-mistysom
+        cp -r $GITHUB_WORKSPACE/meta-mistysom $GITHUB_WORKSPACE/rzg2l/Build/
+
     - name: Build the Docker image
-      run: cd Build && ./build.sh; 
+      run: cd $GITHUB_WORKSPACE/rzg2l/Build && ./build.sh; 
     
     - name: Run the Docker image and build output files with SDK
-      run: cd Build && ./run.sh -c /home/github/rzg2l-cache;
+      run: cd $GITHUB_WORKSPACE/rzg2l/Build && ./run.sh -c /home/github/rzg2l-cache;
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         name: output-files
         path: |
-          Build/output/images/smarc-rzg2l/Image-smarc-rzg2l.bin
-          Build/output/images/smarc-rzg2l/r9a07g044l2-smarc.dtb
-          Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.tar.bz2
+          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/Image-smarc-rzg2l.bin
+          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/r9a07g044l2-smarc.dtb
+          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.tar.bz2
