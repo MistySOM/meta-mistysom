@@ -22,7 +22,7 @@ jobs:
     - run: |
         cd Build/meta-mistysom
         git fetch --all
-        git checkout ${{github.sha}}
+        git checkout ${GITHUB_SHA}
         cd ../..
     
     - name: Build the Docker image
