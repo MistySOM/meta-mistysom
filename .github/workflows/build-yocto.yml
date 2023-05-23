@@ -20,8 +20,13 @@ jobs:
         submodules: recursive
     
     - run: |
-        cd Build/meta-mistysom
-        git checkout ${{github.ref_name}}
+        target_branch=${{ github.base_ref }}
+        # Set another value if the variable is empty
+        target_branch="${target_branch:-${{ github.ref_name }}}"        
+        echo "The target branch is: $target_branch"
+        
+        cd Build/meta-mistysom        
+        git checkout ${target_branch}
         cd ../..
     
     - name: Build the Docker image
