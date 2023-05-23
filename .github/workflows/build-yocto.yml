@@ -24,6 +24,7 @@ jobs:
         path: rzg2l
     
     - run: |
+        rm -rf rzg2l/Build/meta-mistysom
         cp -r meta-mistysom rzg2l/Build
         cp -r rzg2l/* .
         rm -rf meta-mistysom rzg2l        
