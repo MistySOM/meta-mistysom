@@ -18,6 +18,7 @@ jobs:
       with:
         repository: MistySOM/rzg2l
         submodules: recursive
+        fetch-depth: 0
     
     - run: |
         cd Build/meta-mistysom        
