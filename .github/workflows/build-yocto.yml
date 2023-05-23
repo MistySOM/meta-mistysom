@@ -16,14 +16,18 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
+        path: meta-mistysom
+
+    - uses: actions/checkout@v3
+      with:
         repository: MistySOM/rzg2l
         submodules: recursive
+        path: rzg2l
     
     - run: |
-        cd Build/meta-mistysom
-        git fetch --all
-        git checkout ${GITHUB_SHA}
-        cd ../..
+        rm -rf rzg2l/Build/meta-mistysom
+        mv meta-mistysom rzg2l/Build
+        mv rzg2l/* .
     
     - name: Build the Docker image
       run: cd Build && ./build.sh; 
