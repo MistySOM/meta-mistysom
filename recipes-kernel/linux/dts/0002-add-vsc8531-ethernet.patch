@@ -1,8 +1,12 @@
 diff --git a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
-index c5973d8..de91e8c 100644
+index c5973d8b1057..de91e8c1f986 100644
 --- a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
 +++ b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
-@@ -126,8 +126,7 @@
+@@ -122,61 +122,63 @@ &eth0 {
+ 	pinctrl-0 = <&eth0_pins>;
+ 	pinctrl-names = "default";
+ 	phy-handle = <&phy0>;
+ 	phy-mode = "rgmii-id";
  	status = "okay";
  
  	phy0: ethernet-phy@7 {
@@ -12,7 +16,14 @@ index c5973d8..de91e8c 100644
  		reg = <7>;
  		rxc-skew-psec = <2400>;
  		txc-skew-psec = <2400>;
-@@ -142,8 +141,10 @@
+ 		rxdv-skew-psec = <0>;
+ 		txdv-skew-psec = <0>;
+ 		rxd0-skew-psec = <0>;
+ 		rxd1-skew-psec = <0>;
+ 		rxd2-skew-psec = <0>;
+ 		rxd3-skew-psec = <0>;
+ 		txd0-skew-psec = <0>;
+ 		txd1-skew-psec = <0>;
  		txd2-skew-psec = <0>;
  		txd3-skew-psec = <0>;
  
@@ -25,7 +36,11 @@ index c5973d8..de91e8c 100644
  	};
  };
  
-@@ -155,8 +156,7 @@
+ &eth1 {
+ 	pinctrl-0 = <&eth1_pins>;
+ 	pinctrl-names = "default";
+ 	phy-handle = <&phy1>;
+ 	phy-mode = "rgmii-id";
  	status = "okay";
  
  	phy1: ethernet-phy@7 {
@@ -35,7 +50,14 @@ index c5973d8..de91e8c 100644
  		reg = <7>;
  		rxc-skew-psec = <2400>;
  		txc-skew-psec = <2400>;
-@@ -171,8 +171,10 @@
+ 		rxdv-skew-psec = <0>;
+ 		txdv-skew-psec = <0>;
+ 		rxd0-skew-psec = <0>;
+ 		rxd1-skew-psec = <0>;
+ 		rxd2-skew-psec = <0>;
+ 		rxd3-skew-psec = <0>;
+ 		txd0-skew-psec = <0>;
+ 		txd1-skew-psec = <0>;
  		txd2-skew-psec = <0>;
  		txd3-skew-psec = <0>;
  
@@ -46,5 +68,9 @@ index c5973d8..de91e8c 100644
 +        vsc8531,led-0-mode = <VSC8531_LINK_1000_ACTIVITY>;
 +        vsc8531,led-1-mode = <VSC8531_LINK_100_ACTIVITY>;
  	};
+ };
+ 
+ &extal_clk {
+ 	clock-frequency = <24000000>;
  };
  
