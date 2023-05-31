@@ -12,7 +12,7 @@ SRC_URI += "file://WIRELESS.cfg"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
 SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
-SRC_URI += "file://0002-add-vsc8531-ethernet.patch"
+SRC_URI += "file://add-vsc8531-ethernet.dts"
 
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
 #SRC_URI += "file://add-sx150x-port-expander.dts"
