@@ -14,7 +14,6 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
 SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
 SRC_URI += "file://add-vsc8531-ethernet.dts"
 SRC_URI += "file://add-can-ports.dts"
-SRC_URI += "file://rm-sdhi0-regulator.dts"
 
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
 #SRC_URI += "file://add-sx150x-port-expander.dts"
