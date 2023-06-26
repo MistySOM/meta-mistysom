@@ -1,0 +1,5 @@
+/ {
+/delete-node/ vccq_sdhi;
+/delete-node/ regulator-vccq-sdhi0;
+};
+
