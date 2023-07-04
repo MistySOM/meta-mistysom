@@ -7,8 +7,6 @@ IMAGE_INSTALL_append = " python3-core"
 IMAGE_INSTALL_append = " python3-multiprocessing"
 IMAGE_INSTALL_append = " usbutils"
 IMAGE_INSTALL_append = " usbutils-python"
-IMAGE_INSTALL_append = " phytool"
-IMAGE_INSTALL_append = " ethtool"
 IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
 IMAGE_INSTALL_append = " iproute2"
@@ -59,3 +57,12 @@ IMAGE_FEATURES_remove = "tools-profile tools-debug tools-testapps"
 
 # For eMMC flashing
 IMAGE_INSTALL_append = " e2fsprogs"
+
+# For PHY bringup
+IMAGE_INSTALL_append = " phytool"
+IMAGE_INSTALL_append = " ethtool"
+IMAGE_INSTALL_append = " mdio-tools"
+IMAGE_INSTALL_append = " net-tools"
+IMAGE_INSTALL_append = " tcpdump"
+IMAGE_INSTALL_append = " iputils"
+IMAGE_INSTALL_append = " tmux"

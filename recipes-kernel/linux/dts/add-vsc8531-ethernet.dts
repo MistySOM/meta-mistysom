@@ -2,8 +2,11 @@
 
 &eth0 {
         phy0: ethernet-phy@7 {
-                compatible = "ethernet-phy-ieee802.3-c45";
-                reg = <7>;
+                /delete-property/       interrupt-parent;
+                /delete-property/       interrupts;
+
+                compatible              = "ethernet-phy-ieee802.3-c22";
+                reg                     = <0>;
                 vsc8531,vddmac          = <1800>;
                 vsc8531,edge-slowdown   = <0>;
                 vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;
@@ -13,8 +16,11 @@
 
 &eth1 {
         phy1: ethernet-phy@7 {
-                compatible = "ethernet-phy-ieee802.3-c45";
-                reg = <7>;
+                /delete-property/       interrupt-parent;
+                /delete-property/       interrupts;
+
+                compatible              = "ethernet-phy-ieee802.3-c22";
+                reg                     = <0>;
                 vsc8531,vddmac          = <1800>;
                 vsc8531,edge-slowdown   = <0>;
                 vsc8531,led-0-mode      = <VSC8531_LINK_1000_ACTIVITY>;

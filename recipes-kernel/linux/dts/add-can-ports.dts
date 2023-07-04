@@ -1,3 +1,7 @@
+/ {
+/delete-node/ regulator-vccq-sdhi0;
+};
+
 &pinctrl {
 	can0_pins: can0 {
 		pinmux = <RZG2L_PORT_PINMUX(10, 1, 2)>, /* TX */
