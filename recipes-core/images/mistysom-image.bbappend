@@ -63,3 +63,7 @@ IMAGE_INSTALL_append = " net-tools"
 IMAGE_INSTALL_append = " tcpdump"
 IMAGE_INSTALL_append = " iputils"
 IMAGE_INSTALL_append = " tmux"
+
+#For IDE03
+IMAGE_INSTALL_append = " git"
+IMAGE_INSTALL_append = " vim"
