@@ -12,8 +12,8 @@ index 3216ab6..35df65c 100644
  	no-1-8-v;
 +
 +	non-removable;
-+	clock-frequency=<10000000>;
-+	max-frequency=<10000000>;
++	clock-frequency=<40000000>;
++	max-frequency=<40000000>;
 +	#address-cells = <1>;
 +	#size-cells = <0>;
 +	brcmf: wifi@1 {
