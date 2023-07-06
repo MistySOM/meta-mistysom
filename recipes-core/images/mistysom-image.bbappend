@@ -43,8 +43,8 @@ IMAGE_INSTALL_append = " vspmif-user-module kernel-module-vspm kernel-module-vsp
 # For Wifi
 IMAGE_INSTALL_append = " iw"
 IMAGE_INSTALL_append = " dhcpcd"
-IMAGE_INSTALL_append = " sterling-supplicant-lwb"
-IMAGE_INSTALL_append = " wireless-regdb-static"
+IMAGE_INSTALL_append = " wpa-supplicant"
+
 # WiFi Module Laird Sterling-LWB5+ (Disable other WiFi modules because this module compiles a different cfg80211.ko)
 IMAGE_INSTALL_append = " lwb5plus-sdio-div-firmware"
 IMAGE_INSTALL_append = " kernel-module-lwb5p-backports-laird"
