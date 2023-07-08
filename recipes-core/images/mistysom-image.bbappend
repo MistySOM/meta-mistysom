@@ -67,3 +67,6 @@ IMAGE_INSTALL_append = " tmux"
 #For IDE03
 IMAGE_INSTALL_append = " git"
 IMAGE_INSTALL_append = " vim"
+IMAGE_INSTALL_append = " python3-spidev"
+IMAGE_INSTALL_append = " spi-tools"
+IMAGE_INSTALL_append = " python3-pyserial"
