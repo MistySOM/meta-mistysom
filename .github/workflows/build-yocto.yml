@@ -19,10 +19,11 @@ jobs:
         repository: MistySOM/rzg2l
         path: rzg2l
         ref: develop
+        submodules: recursive
 
     - uses: actions/checkout@v3
       with:
-        submodules: recursive
+        repository: MistySOM/meta-mistysom
         path: meta-mistysom
 
     - run: |
