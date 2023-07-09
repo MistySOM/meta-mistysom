@@ -11,7 +11,7 @@ on:
     
 jobs:
   build-yocto:
-    runs-on: self-hosted
+    runs-on: DC02
     
     steps:    
     - uses: actions/checkout@v3
@@ -22,6 +22,7 @@ jobs:
 
     - uses: actions/checkout@v3
       with:
+        submodule: recursive
         path: meta-mistysom
 
     - run: |
