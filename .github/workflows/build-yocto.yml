@@ -23,7 +23,6 @@ jobs:
 
     - uses: actions/checkout@v3
       with:
-        repository: MistySOM/meta-mistysom
         path: meta-mistysom
 
     - run: |
