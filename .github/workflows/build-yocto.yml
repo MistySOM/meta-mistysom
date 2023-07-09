@@ -11,7 +11,7 @@ on:
     
 jobs:
   build-yocto:
-    runs-on: self-hosted
+    runs-on: DC02
     
     steps:    
     - uses: actions/checkout@v3
@@ -19,6 +19,7 @@ jobs:
         repository: MistySOM/rzg2l
         path: rzg2l
         ref: develop
+        submodules: true
 
     - uses: actions/checkout@v3
       with:
