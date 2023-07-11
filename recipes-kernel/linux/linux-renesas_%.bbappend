@@ -15,6 +15,7 @@ SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
 SRC_URI += "file://0002-add-sdhi1-laird.patch"
 SRC_URI += "file://add-vsc8531-ethernet.dts"
 SRC_URI += "file://add-can-ports.dts"
+DT = "${@d.getVar('KERNEL_DEVICETREE', True).strip().rsplit('/', 1)[-1].rsplit('.', 1)[0]}"
 
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
 #SRC_URI += "file://add-sx150x-port-expander.dts"
@@ -24,7 +25,10 @@ SRC_URI += "file://add-can-ports.dts"
 #SRC_URI += "file://add-riic1-i2c1-for-testing-i2c-on-hdr.dts"
 
 do_patch_append() {
-    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts || :
-    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts || :
+    cp ${S}/arch/arm64/boot/dts/renesas/${DT}.dts ${WORKDIR}/${DT}.dts.orig
+    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/${DT}.dts || :
 }
 
+do_compile_append() {
+    cp ${WORKDIR}/${DT}.dts.orig ${S}/arch/arm64/boot/dts/renesas/${DT}.dts
+}
