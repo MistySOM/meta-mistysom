@@ -29,6 +29,6 @@ do_patch_append() {
     cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/${DT}.dts || :
 }
 
-do_compile_append() {
+do_deploy_append() {
     cp ${WORKDIR}/${DT}.dts.orig ${S}/arch/arm64/boot/dts/renesas/${DT}.dts
 }
