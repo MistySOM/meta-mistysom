@@ -23,8 +23,19 @@ SRC_URI += "file://add-can-ports.dts"
 #SRC_URI += "file://add-scif2-serial-port-for-uart-testing.dts"
 #SRC_URI += "file://add-riic1-i2c1-for-testing-i2c-on-hdr.dts"
 
+# The ${KERNEL_DEVICETREE} variable contains '   renesas/r9a07g044l2-smarc.dtb    ';
+# So the extra whitespaces needs to removed with strip() function,
+# We can extract the file name and remove the directory name with rsplit('/', 1)[-1] function,
+# And lastly, we can remove the extension with rsplit('.',1)[0] function resulting in 'r9a07g044l2-smarc'
+DT = "${@d.getVar('KERNEL_DEVICETREE', True).strip().rsplit('/', 1)[-1].rsplit('.', 1)[0]}"
+
+# Using this ${DT} variable we can backup and patch the correct devicetree.
 do_patch_append() {
-    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dts || :
-    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dts || :
+    cp ${S}/arch/arm64/boot/dts/renesas/${DT}.dts ${WORKDIR}/${DT}.dts.orig
+    cat ${WORKDIR}/*.dts >> ${S}/arch/arm64/boot/dts/renesas/${DT}.dts || :
 }
 
+# Restore backup, allowing to have multiple 'bitbake mistysom-image' executions.
+do_deploy_append() {
+    cp ${WORKDIR}/${DT}.dts.orig ${S}/arch/arm64/boot/dts/renesas/${DT}.dts
+}
