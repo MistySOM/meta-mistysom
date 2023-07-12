@@ -1,0 +1,26 @@
+diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+index 3216ab6..35df65c 100644
+--- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+@@ -262,10 +262,20 @@
+ 	pinctrl-names = "default";
+ 
+ 	vmmc-supply = <&reg_3p3v>;
+-	cd-gpios = <&pinctrl RZG2L_GPIO(19, 0) GPIO_ACTIVE_LOW>;
+ 	bus-width = <4>;
+ 	status = "okay";
+ 	no-1-8-v;
++
++	non-removable;
++	clock-frequency=<40000000>;
++	max-frequency=<40000000>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++	brcmf: wifi@1 {
++		reg = <1>;
++		compatible = "brcm,bcm4329-fmac";
++		laird,regdomain = "US";
++	};
+ };
+ 
+ &spi1 {
