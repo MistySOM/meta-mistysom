@@ -34,6 +34,9 @@ jobs:
     
     - name: Run the Docker image and build output files with SDK
       run: cd $GITHUB_WORKSPACE/rzg2l/Build && ./run.sh -c /home/github/rzg2l-cache;
+
+    - name: List files that are generated
+      run: ls -lah $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
