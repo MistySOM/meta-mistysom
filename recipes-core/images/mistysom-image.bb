@@ -8,6 +8,8 @@ inherit core-image features_check
 inherit extrausers
 
 REQUIRED_DISTRO_FEATURES = "wayland"
+IMAGE_FSTYPES = "wic.bz2 ext4.bz2"
+IMAGE_BOOT_FILES = "*.bin *.dtb"
 
 ##Set rootfs  to 200MiB by default
 #IMAGE_OVERHEAD_FACTOR ?= "1.0"

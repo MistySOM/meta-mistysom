@@ -40,6 +40,5 @@ jobs:
       with:
         name: output-files
         path: |
-          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/Image-smarc-rzg2l.bin
-          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/r9a07g044l2-smarc.dtb
-          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.tar.bz2
+          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.wic.bz2
+          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.ext4.bz2
