@@ -17,6 +17,7 @@ IMAGE_BOOT_FILES = "Image-*.bin r9*.dtb"
 
 # Add device tree files in /boot directory of ext4.bz2
 do_copy_dtb() {
+  mkdir -p ${IMAGE_ROOTFS}/boot/
   cp ${DEPLOY_DIR_IMAGE}/r9*.dtb ${IMAGE_ROOTFS}/boot/
 }
 addtask do_copy_dtb before do_rootfs
