@@ -26,20 +26,20 @@ jobs:
         path: meta-mistysom
 
     - run: |
-        rm -rf $GITHUB_WORKSPACE/rzg2l/Build/meta-mistysom
-        cp -r $GITHUB_WORKSPACE/meta-mistysom $GITHUB_WORKSPACE/rzg2l/Build/
+        rm -rf rzg2l/Build/meta-mistysom
+        cp -r meta-mistysom rzg2l/Build/
 
     - name: Build the Docker image
-      run: cd $GITHUB_WORKSPACE/rzg2l/Build && ./build.sh; 
+      run: cd rzg2l/Build && ./build.sh;
     
     - name: Run the Docker image and build output files with SDK
-      run: cd $GITHUB_WORKSPACE/rzg2l/Build && ./run.sh -c /home/github/rzg2l-cache;
+      run: cd rzg2l/Build && ./run.sh -c /home/github/rzg2l-cache;
+
+    - name: List files that are generated
+      run: ls -lah rzg2l/Build/output/images/smarc-rzg2l/
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         name: output-files
-        path: |
-          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/Image-smarc-rzg2l.bin
-          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/r9a07g044l2-smarc.dtb
-          $GITHUB_WORKSPACE/rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.tar.bz2
+        path: rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.wic.bz2
