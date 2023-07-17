@@ -42,6 +42,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: output-files
-        path: |
-          rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.wic.bz2
-          rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.ext4.bz2
+        path: rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.wic.bz2
