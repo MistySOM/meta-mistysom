@@ -1,5 +1,5 @@
 diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
-index 3216ab6..35df65c 100644
+index 3216ab6..c2cbcba 100644
 --- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
 +++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
 @@ -262,10 +262,20 @@
@@ -24,3 +24,28 @@ index 3216ab6..35df65c 100644
  };
  
  &spi1 {
+diff --git a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
+index c5973d8..b658bf7 100644
+--- a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
++++ b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
+@@ -252,18 +252,10 @@
+ 		};
+ 	};
+ 
+-	/*
+-	 * SD0 device selection is XOR between GPIO_SD0_DEV_SEL and SW1[2]
+-	 * The below switch logic can be used to select the device between
+-	 * eMMC and microSD, after setting GPIO_SD0_DEV_SEL to high in DT.
+-	 * SW1[2] should be at position 2/OFF to enable 64 GB eMMC
+-	 * SW1[2] should be at position 3/ON to enable uSD card CN3
+-	 */
+-	sd0-dev-sel-hog {
+-		gpio-hog;
++	wl_reg_on {
+ 		gpios = <RZG2L_GPIO(41, 1) GPIO_ACTIVE_HIGH>;
+ 		output-high;
+-		line-name = "sd0_dev_sel";
++		line-name = "wl_reg_on";
+ 	};
+ 
+ 	sdhi0_emmc_pins: sd0emmc {

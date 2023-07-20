@@ -20,7 +20,6 @@ do_copy_dtb() {
   mkdir -p ${IMAGE_ROOTFS}/boot/
   cp ${DEPLOY_DIR_IMAGE}/r9*.dtb ${IMAGE_ROOTFS}/boot/
 }
-addtask do_copy_dtb before do_rootfs
 IMAGE_PREPROCESS_COMMAND += "do_copy_dtb;"
 
 ##Set rootfs  to 200MiB by default

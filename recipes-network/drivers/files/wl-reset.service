@@ -1,0 +1,11 @@
+[Unit]
+Description=Reset GPIO pin for WL_REG_ON
+DefaultDependencies=no
+After=final.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/gpioset gpiochip0 329=0
+
+[Install]
+WantedBy=final.target
