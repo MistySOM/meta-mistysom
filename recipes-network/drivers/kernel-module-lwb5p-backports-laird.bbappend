@@ -1,4 +1,16 @@
 
+inherit systemd
+
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+SRC_URI += "file://wl-reset.service"
+SYSTEMD_SERVICE_${PN} += "wl-reset.service"
+FILES_${PN} += "${systemd_system_unitdir}/wl-reset.service"
+
+do_install_append() {
+    install -d ${D}${systemd_system_unitdir}
+    install -m 0644 ${B}/../wl-reset.service ${D}${systemd_system_unitdir}
+}
+
 # Failed attempt to add other wifi modules with the command below
 # BACKPORTS_CONFIG = "defconfig-wifi"
 
