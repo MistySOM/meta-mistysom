@@ -1,19 +1,19 @@
-name: Fast Forward the master branch if request is approved
+name: Fast forward master if request is approved
 
 on:
   pull_request:
-    branches: [master]
+    branches: [ 'master' ]
 
 jobs:
   fast_forward_job:
     name: Fast Forward
     if: github.event.review.state == 'approved'   
     runs-on: ubuntu-latest
+    
     steps:
-      # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      # Basic use case example
+        
       - name: Fast Forward PR
         uses: endre-spotlab/fast-forward-js-action@2.1
         with:
