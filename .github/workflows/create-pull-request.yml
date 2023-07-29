@@ -18,3 +18,5 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           branch: master
+          token: ${{ secrets.PAT }}
+          team-reviewers: reviewers
