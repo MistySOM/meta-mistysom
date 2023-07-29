@@ -12,11 +12,12 @@ jobs:
 
       # Create a pull request from develop to master
       - name: Create Pull Request
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr create --base master --head develop \
             --title "Merge from develop to master" \
             --body "This is an automated pull request created by GitHub Actions." \
             --reviewer matinlotfali \
             --reviewer mistyron
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
