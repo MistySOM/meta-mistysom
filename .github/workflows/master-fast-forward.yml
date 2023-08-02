@@ -1,20 +1,10 @@
-name: Fast forward master if request is approved
+name: Fast forward master if develop is approved
 
 on:
   pull_request_review:
     types: [submitted]
 
 jobs:
-  print_status:
-    name: Print Variables
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Print Variables
-        run: |
-          echo 'github.event.pull_request.base.ref: ${{ github.event.pull_request.base.ref }}'
-          echo 'github.event.review.state ${{ github.event.review.state }}'
-
   fast_forward_job:
     name: Fast Forward
     if: github.event.pull_request.base.ref == 'master' && github.event.review.state == 'approved'  
@@ -23,10 +13,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: master
         
       - name: Fast Forward PR
-        uses: endre-spotlab/fast-forward-js-action@2.1
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          success_message: 'Success! Fast forwarded ***target_base*** to ***source_head***! ```git checkout target_base && git merge source_head --ff-only``` '
-          failure_message: 'Failed! Cannot do fast forward!'
+        run: |
+          git merge origin/develop --ff-only
+          git push
