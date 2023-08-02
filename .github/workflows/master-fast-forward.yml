@@ -11,7 +11,7 @@ jobs:
     
     steps:
       - name: Print Variables
-      - run: |
+        run: |
           echo 'github.base_ref: ${{ github.base_ref }}'
           echo 'github.event.review.state ${{ github.event.review.state }}'
 
