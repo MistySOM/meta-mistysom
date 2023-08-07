@@ -44,6 +44,8 @@ IMAGE_INSTALL_append = " vspmif-user-module kernel-module-vspm kernel-module-vsp
 IMAGE_INSTALL_append = " iw"
 IMAGE_INSTALL_append = " dhcpcd"
 IMAGE_INSTALL_append = " wpa-supplicant"
+# For Bluetooth
+IMAGE_INSTALL_append = " bluez5"
 
 # WiFi Module Laird Sterling-LWB5+ (Disable other WiFi modules because this module compiles a different cfg80211.ko)
 IMAGE_INSTALL_append = " lwb5plus-sdio-div-firmware"
