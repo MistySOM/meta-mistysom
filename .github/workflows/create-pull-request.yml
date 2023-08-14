@@ -35,7 +35,7 @@ jobs:
       - name: Update submodule
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT2 }}
         run: |
           git config user.email "matin.lotfali@mistywest.com"
           git config user.name "Github Actions Bot"
@@ -71,7 +71,7 @@ jobs:
       - name: Update submodule
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT2 }}
         run: |
           git config user.email "matin.lotfali@mistywest.com"
           git config user.name "Github Actions Bot"
