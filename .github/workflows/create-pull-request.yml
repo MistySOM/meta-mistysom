@@ -34,11 +34,10 @@ jobs:
           fetch-depth: 0
           ref: develop
           submodules: true
+          token: ${{ secrets.PAT2 }}
 
       - name: Update submodule
         continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT2 }}
         run: |
           git config user.email "matin.lotfali@mistywest.com"
           git config user.name "Github Actions Bot"
@@ -70,11 +69,10 @@ jobs:
           fetch-depth: 0
           ref: develop
           submodules: true
+          token: ${{ secrets.PAT2 }}
 
       - name: Update submodule
         continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT2 }}
         run: |
           git config user.email "matin.lotfali@mistywest.com"
           git config user.name "Github Actions Bot"
