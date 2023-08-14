@@ -28,7 +28,7 @@ jobs:
   rzg2l-promotion:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: MistySOM/rzg2l
           fetch-depth: 0
@@ -42,12 +42,13 @@ jobs:
           git config user.email "matin.lotfali@mistywest.com"
           git config user.name "Github Actions Bot"
           git branch update-submodule
+          git checkout update-submodule
           cd Build/meta-mistysom
           git reset --hard origin/develop
           cd ../..
           git add .
           git commit -m "Update meta-mistysom submodule"
-          git push
+          git push --upstream origin update-submodule
 
       - name: Create Pull Request
         continue-on-error: true
@@ -63,7 +64,7 @@ jobs:
   rzv2l-promotion:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           repository: MistySOM/rzv2l
           fetch-depth: 0
@@ -77,12 +78,13 @@ jobs:
           git config user.email "matin.lotfali@mistywest.com"
           git config user.name "Github Actions Bot"
           git branch update-submodule
+          git checkout update-submodule
           cd Build/meta-mistysom
           git reset --hard origin/develop
           cd ../..
           git add .
           git commit -m "Update meta-mistysom submodule"
-          git push
+          git push --upstream origin update-submodule
 
       - name: Create Pull Request
         continue-on-error: true
