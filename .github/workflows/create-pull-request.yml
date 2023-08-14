@@ -37,6 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config user.email "matin.lotfali@mistywest.com"
+          git config user.name "Github Actions Bot"
           git branch update-submodule
           cd Build/meta-mistysom
           git reset --hard origin/develop
@@ -70,6 +72,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config user.email "matin.lotfali@mistywest.com"
+          git config user.name "Github Actions Bot"
           git branch update-submodule
           cd Build/meta-mistysom
           git reset --hard origin/develop
