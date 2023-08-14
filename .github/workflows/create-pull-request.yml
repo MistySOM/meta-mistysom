@@ -4,7 +4,7 @@ on:
     branches:
       - develop
 jobs:
-  release-promotion:
+  master-promotion:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,6 +18,72 @@ jobs:
         run: |
           gh pr create --base master --head develop \
             --title "Merge from develop to master" \
+            --body "This is an automated pull request created by GitHub Actions." \
+            --reviewer matinlotfali \
+            --reviewer mistyron
+
+  rzg2l-promotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          path: rzg2l
+          ref: develop
+          submodules: true
+
+      - name: Update submodule
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git branch update-submodule
+          cd Build/meta-mistysom
+          git reset --hard origin/develop
+          cd ../..
+          git commit -m "Update meta-mistysom submodule"
+          git push
+
+      - name: Create Pull Request
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create --base develop --head update-submodule \
+            --title "Update meta-mistysom submodule" \
+            --body "This is an automated pull request created by GitHub Actions." \
+            --reviewer matinlotfali \
+            --reviewer mistyron
+
+  rzv2l-promotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          path: rzv2l
+          ref: develop
+          submodules: true
+
+      - name: Update submodule
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git branch update-submodule
+          cd Build/meta-mistysom
+          git reset --hard origin/develop
+          cd ../..
+          git commit -m "Update meta-mistysom submodule"
+          git push
+
+      - name: Create Pull Request
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create --base develop --head update-submodule \
+            --title "Update meta-mistysom submodule" \
             --body "This is an automated pull request created by GitHub Actions." \
             --reviewer matinlotfali \
             --reviewer mistyron
