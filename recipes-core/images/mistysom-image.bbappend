@@ -66,3 +66,6 @@ IMAGE_INSTALL_append = " net-tools"
 IMAGE_INSTALL_append = " tcpdump"
 IMAGE_INSTALL_append = " iputils"
 IMAGE_INSTALL_append = " tmux"
+
+# For Docker
+IMAGE_INSTALL_append = " docker-ce"
