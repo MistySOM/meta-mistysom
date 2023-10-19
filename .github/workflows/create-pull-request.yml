@@ -1,0 +1,98 @@
+name: Create release promotion pull request
+on:
+  push:
+    branches:
+      - develop
+permissions:
+  contents: write
+
+jobs:
+  master-promotion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # Create a pull request from develop to master
+      - name: Create Pull Request
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create --base master --head develop \
+            --title "Merge from develop to master" \
+            --body "This is an automated pull request created by GitHub Actions." \
+            --reviewer matinlotfali \
+            --reviewer mistyron
+
+  rzg2l-promotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: MistySOM/rzg2l
+          fetch-depth: 0
+          ref: develop
+          submodules: true
+          token: ${{ secrets.PAT2 }}
+
+      - name: Update submodule
+        continue-on-error: true
+        run: |
+          git config user.email "matin.lotfali@mistywest.com"
+          git config user.name "Github Actions Bot"
+          git branch update-submodule
+          git checkout update-submodule
+          cd Build/meta-mistysom
+          git reset --hard origin/develop
+          cd ../..
+          git add .
+          git commit -m "Update meta-mistysom submodule"
+          git push --set-upstream origin update-submodule
+
+      - name: Create Pull Request
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT2 }}
+        run: |
+          gh pr create --base develop --head update-submodule \
+            --title "Update meta-mistysom submodule" \
+            --body "This is an automated pull request created by GitHub Actions." \
+            --reviewer matinlotfali \
+            --reviewer mistyron
+
+  rzv2l-promotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: MistySOM/rzv2l
+          fetch-depth: 0
+          ref: develop
+          submodules: true
+          token: ${{ secrets.PAT2 }}
+
+      - name: Update submodule
+        continue-on-error: true
+        run: |
+          git config user.email "matin.lotfali@mistywest.com"
+          git config user.name "Github Actions Bot"
+          git branch update-submodule
+          git checkout update-submodule
+          cd Build/meta-mistysom
+          git reset --hard origin/develop
+          cd ../..
+          git add .
+          git commit -m "Update meta-mistysom submodule"
+          git push --set-upstream  origin update-submodule
+
+      - name: Create Pull Request
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT2 }}
+        run: |
+          gh pr create --base develop --head update-submodule \
+            --title "Update meta-mistysom submodule" \
+            --body "This is an automated pull request created by GitHub Actions." \
+            --reviewer matinlotfali \
+            --reviewer mistyron
