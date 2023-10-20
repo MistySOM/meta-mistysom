@@ -78,4 +78,3 @@ IMAGE_INSTALL_append = " python3-pip"
 
 # For Docker
 IMAGE_INSTALL_append = " docker-ce"
->>>>>>> origin/develop
