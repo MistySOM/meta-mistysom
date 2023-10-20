@@ -67,7 +67,7 @@ IMAGE_INSTALL_append = " tcpdump"
 IMAGE_INSTALL_append = " iputils"
 IMAGE_INSTALL_append = " tmux"
 
-#For IDE03
+#For development
 IMAGE_INSTALL_append = " git"
 IMAGE_INSTALL_append = " vim"
 IMAGE_INSTALL_append = " python3-spidev"
