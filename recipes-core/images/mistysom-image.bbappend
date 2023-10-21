@@ -61,6 +61,7 @@ IMAGE_INSTALL_append = " e2fsprogs"
 # For PHY bringup
 IMAGE_INSTALL_append = " phytool"
 IMAGE_INSTALL_append = " ethtool"
+IMAGE_INSTALL_append = " screen"
 IMAGE_INSTALL_append = " mdio-tools"
 IMAGE_INSTALL_append = " net-tools"
 IMAGE_INSTALL_append = " tcpdump"
