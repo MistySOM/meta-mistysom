@@ -69,3 +69,6 @@ IMAGE_INSTALL_append = " tmux"
 
 # For Docker
 IMAGE_INSTALL_append = " docker-ce"
+
+# For NodeJS and NPM
+IMAGE_INSTALL_append = " nodejs"
