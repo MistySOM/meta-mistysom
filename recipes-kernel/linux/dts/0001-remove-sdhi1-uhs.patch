@@ -1,8 +1,8 @@
 diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
-index 0fdb482..3216ab6 100644
+index b6b5304..528c64c 100644
 --- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
 +++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
-@@ -72,16 +72,6 @@
+@@ -63,15 +63,6 @@
  		regulator-max-microvolt = <5000000>;
  	};
  
@@ -11,7 +11,6 @@ index 0fdb482..3216ab6 100644
 -		regulator-name = "SDHI1 VccQ";
 -		regulator-min-microvolt = <1800000>;
 -		regulator-max-microvolt = <3300000>;
--		gpios = <&pinctrl RZG2L_GPIO(39, 1) GPIO_ACTIVE_HIGH>;
 -		gpios-states = <1>;
 -		states = <3300000 1>, <1800000 0>;
 -	};
@@ -19,17 +18,17 @@ index 0fdb482..3216ab6 100644
  	hdmi-out {
  		compatible = "hdmi-connector";
  		type = "d";
-@@ -269,16 +259,13 @@
+@@ -243,16 +234,12 @@
+ };
  
  &sdhi1 {
- 	pinctrl-0 = <&sdhi1_pins>;
+-	pinctrl-0 = <&sdhi1_pins>;
 -	pinctrl-1 = <&sdhi1_pins_uhs>;
 -	pinctrl-names = "default", "state_uhs";
 +	pinctrl-names = "default";
  
  	vmmc-supply = <&reg_3p3v>;
 -	vqmmc-supply = <&vccq_sdhi1>;
- 	cd-gpios = <&pinctrl RZG2L_GPIO(19, 0) GPIO_ACTIVE_LOW>;
  	bus-width = <4>;
 -	sd-uhs-sdr50;
 -	sd-uhs-sdr104;
@@ -37,12 +36,12 @@ index 0fdb482..3216ab6 100644
 +	no-1-8-v;
  };
  
- &spi1 {
+ #if (!MTU3_PWM_SUPPORT)
 diff --git a/arch/arm64/boot/dts/renesas/rzg2l-smarc-pinfunction.dtsi b/arch/arm64/boot/dts/renesas/rzg2l-smarc-pinfunction.dtsi
-index 1c3376b..a25419f 100644
+index 30c5bab09b1f..51be077e9e8d 100644
 --- a/arch/arm64/boot/dts/renesas/rzg2l-smarc-pinfunction.dtsi
 +++ b/arch/arm64/boot/dts/renesas/rzg2l-smarc-pinfunction.dtsi
-@@ -84,18 +84,6 @@
+@@ -110,22 +110,6 @@ sd1_mux {
  		};
  	};
  
@@ -55,6 +54,10 @@ index 1c3376b..a25419f 100644
 -		sd1_ctrl_uhs {
 -			pins = "SD1_CLK", "SD1_CMD";
 -			power-source = <1800>;
+-		};
+-
+-		sd1_mux_uhs {
+-			pinmux = <RZG2L_PORT_PINMUX(19, 0, 1)>; /* SD1_CD */
 -		};
 -	};
 -
