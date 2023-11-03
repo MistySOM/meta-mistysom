@@ -1,12 +1,8 @@
 diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
-index 3216ab6..c2cbcba 100644
+index 528c64c..39239e7 100644
 --- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
 +++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
-@@ -262,10 +262,20 @@
- 	pinctrl-names = "default";
- 
- 	vmmc-supply = <&reg_3p3v>;
--	cd-gpios = <&pinctrl RZG2L_GPIO(19, 0) GPIO_ACTIVE_LOW>;
+@@ -240,6 +240,17 @@
  	bus-width = <4>;
  	status = "okay";
  	no-1-8-v;
@@ -23,12 +19,12 @@ index 3216ab6..c2cbcba 100644
 +	};
  };
  
- &spi1 {
+ #if (!MTU3_PWM_SUPPORT)
 diff --git a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
-index c5973d8..b658bf7 100644
+index af34d5e524d5..fbb4f717f748 100644
 --- a/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
 +++ b/arch/arm64/boot/dts/renesas/rzg2l-smarc-som.dtsi
-@@ -252,18 +252,10 @@
+@@ -278,18 +278,10 @@ qspi0-ctrl {
  		};
  	};
  
