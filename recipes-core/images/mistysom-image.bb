@@ -1,6 +1,6 @@
 SUMMARY = "MistySOM image."
 
-IMAGE_FEATURES += "splash package-management ssh-server-dropbear hwcodecs sudo"
+IMAGE_FEATURES += "splash package-management ssh-server-dropbear hwcodecs"
 
 LICENSE = "MIT"
 
