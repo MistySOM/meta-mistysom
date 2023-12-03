@@ -3,7 +3,7 @@ ROOTPASSWD = "toor"
 USERNAME = "steve"
 USERPASSWD = "3a5+lSAv3"
 
-IMAGE_FEATURES += "splash package-management ssh-server-openssh hwcodecs sudo"
+IMAGE_FEATURES += "splash package-management ssh-server-openssh hwcodecs"
 
 LICENSE = "MIT"
 
