@@ -19,7 +19,6 @@ DEPENDS += " \
     gobject-introspection \
     cairo \
     libevdev \
-    libxdamage \
     libxshmfence \
     libxkbcommon-x11 \
     "
@@ -37,4 +36,3 @@ do_install_append() {
 }
 
 FILES_${PN} += "${datadir}/wayvnc"
-
