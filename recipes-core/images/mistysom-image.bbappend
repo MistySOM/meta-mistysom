@@ -74,3 +74,6 @@ IMAGE_INSTALL_append = " docker-ce"
 # For NodeJS and NPM
 IMAGE_INSTALL_append = " nodejs"
 IMAGE_INSTALL_append = " nodejs-npm"
+
+IMAGE_INSTALL_append = " wayvnc"
+
