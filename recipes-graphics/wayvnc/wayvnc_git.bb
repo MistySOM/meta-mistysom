@@ -19,8 +19,6 @@ DEPENDS += " \
     gobject-introspection \
     cairo \
     libevdev \
-    libxshmfence \
-    libxkbcommon-x11 \
     "
 
 EXTRA_OEMESON = "-Denable_tests=false"
