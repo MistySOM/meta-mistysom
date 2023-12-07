@@ -67,6 +67,9 @@ IMAGE_INSTALL_append = " tcpdump"
 IMAGE_INSTALL_append = " iputils"
 IMAGE_INSTALL_append = " tmux"
 
+# For Network operation
+IMAGE_INSTALL_append = " autossh"
+
 # For Docker
 IMAGE_INSTALL_append = " docker-ce"
 
