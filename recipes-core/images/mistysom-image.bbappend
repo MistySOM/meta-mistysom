@@ -74,12 +74,3 @@ IMAGE_INSTALL_append = " docker-ce"
 # For NodeJS and NPM
 IMAGE_INSTALL_append = " nodejs"
 IMAGE_INSTALL_append = " nodejs-npm"
-
-# Debug
-IMAGE_INSTALL_append = " gdb"
-IMAGE_INSTALL_append = " gdbserver"
-IMAGE_INSTALL_append = " gcc"
-IMAGE_INSTALL_append = " make"
-IMAGE_INSTALL_append = " cmake"
-IMAGE_INSTALL_append = " rsync"
-IMAGE_INSTALL_append = " meson ninja"
