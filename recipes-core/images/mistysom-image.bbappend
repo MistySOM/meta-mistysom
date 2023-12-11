@@ -75,10 +75,7 @@ IMAGE_INSTALL_append = " nodejs"
 IMAGE_INSTALL_append = " nodejs-npm"
 
 # Debug
-IMAGE_INSTALL_append = " gdb"
-IMAGE_INSTALL_append = " gdbserver"
+IMAGE_INSTALL_append = " gdb gdbserver"
+IMAGE_INSTALL_append = " rsync openssh-sftp-server"
 IMAGE_INSTALL_append = " gcc"
-IMAGE_INSTALL_append = " make"
-IMAGE_INSTALL_append = " cmake"
-IMAGE_INSTALL_append = " rsync"
-IMAGE_INSTALL_append = " meson ninja"
+IMAGE_INSTALL_append = " meson ninja cmake make"
