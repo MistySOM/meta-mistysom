@@ -80,4 +80,5 @@ IMAGE_INSTALL_append = " gdbserver"
 IMAGE_INSTALL_append = " gcc"
 IMAGE_INSTALL_append = " make"
 IMAGE_INSTALL_append = " cmake"
-
+IMAGE_INSTALL_append = " rsync"
+IMAGE_INSTALL_append = " meson ninja"
