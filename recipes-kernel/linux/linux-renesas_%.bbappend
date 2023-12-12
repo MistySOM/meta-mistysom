@@ -1,5 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/Kconfigs:"
 SRC_URI += "file://CANBUS.cfg"
+SRC_URI += "file://DISPLAY.cfg"
 SRC_URI += "file://FB_UDL.cfg"
 SRC_URI += "file://GPIO.cfg"
 SRC_URI += "file://GT9271.cfg"
