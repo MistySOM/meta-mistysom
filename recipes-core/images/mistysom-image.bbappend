@@ -72,5 +72,9 @@ IMAGE_INSTALL_append = " tmux"
 IMAGE_INSTALL_append = " docker-ce"
 
 # For NodeJS and NPM
-IMAGE_INSTALL_append = " nodejs"
-IMAGE_INSTALL_append = " nodejs-npm"
+#IMAGE_INSTALL_append = " nodejs"
+#IMAGE_INSTALL_append = " nodejs-npm"
+
+# Azure iot edge cloud
+IMAGE_INSTALL_append = " aziot-edged"
+IMAGE_INSTALL_append = " aziotctl"
