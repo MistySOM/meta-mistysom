@@ -24,7 +24,10 @@ IMAGE_PREPROCESS_COMMAND += "do_copy_dtb;"
 
 ##Set rootfs  to 200MiB by default
 #IMAGE_OVERHEAD_FACTOR ?= "1.0"
-#IMAGE_ROOTFS_SIZE ?= "294800"
+
+# 10GB rootfs size
+IMAGE_ROOTFS_SIZE ?= "10485760"
+
 #
 ## Change root password (note the capital -P)
 #EXTRA_USERS_PARAMS = "\
