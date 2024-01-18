@@ -10,6 +10,7 @@ IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
 IMAGE_INSTALL_append = " iproute2"
+IMAGE_INSTALL_append = " sudo"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
