@@ -1,0 +1,47 @@
+diff --git a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+index c2cbcba4..fedb727b 100644
+--- a/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
++++ b/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+@@ -317,16 +317,36 @@
+ &dsi0 {
+ 	status = "okay";
+ 
++	#address-cells = <1>;
++	#size-cells = <0>;
++
+ 	ports {
+-		port@1 {
+-			dsi0_out: endpoint {
+-				remote-endpoint = <&adv7535_in>;
+-				data-lanes = <1 2 3 4>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@1 {
++					dsi0_out: endpoint {
++							remote-endpoint = <&panel_in>;
++							data-lanes = <1 2>;
++					};
+ 			};
+-		};
+ 	};
+-};
+ 
++	panel@0 {
++			compatible = "ilitek,ili9881c";
++			reg = <0>;
++			dsi-lanes = <2>;
++			#enable-gpios = <&pinctrl RZG2L_GPIO(43, 0) GPIO_ACTIVE_HIGH>;
++			#backlight = <&backlight>;
++			status = "okay";
++
++			port {
++					panel_in: endpoint {
++							remote-endpoint = <&dsi0_out>;
++					};
++			};
++	};
++};
+ &cru {
+ 	status = "okay";
+ };
