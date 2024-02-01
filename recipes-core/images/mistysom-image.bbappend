@@ -11,6 +11,7 @@ IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
 IMAGE_INSTALL_append = " iproute2"
 IMAGE_INSTALL_append = " sudo"
+IMAGE_INSTALL_append = " tzdata"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
