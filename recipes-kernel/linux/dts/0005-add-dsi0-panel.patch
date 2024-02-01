@@ -31,8 +31,8 @@ index c2cbcba4..fedb727b 100644
 +			compatible = "ilitek,ili9881c";
 +			reg = <0>;
 +			dsi-lanes = <2>;
-+			#enable-gpios = <&pinctrl RZG2L_GPIO(43, 0) GPIO_ACTIVE_HIGH>;
-+			#backlight = <&backlight>;
++			/*enable-gpios = <&pinctrl RZG2L_GPIO(43, 0) GPIO_ACTIVE_HIGH>;
++			backlight = <&backlight>;*/
 +			status = "okay";
 +
 +			port {
