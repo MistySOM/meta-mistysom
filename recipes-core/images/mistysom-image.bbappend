@@ -11,7 +11,7 @@ IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
 IMAGE_INSTALL_append = " iproute2"
 IMAGE_INSTALL_append = " sudo"
-IMAGE_INSTALL_append = " e2fsprogs"
+IMAGE_INSTALL_append = " e2fsprogs-resize2fs"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
