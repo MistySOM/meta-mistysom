@@ -11,7 +11,6 @@ IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
 IMAGE_INSTALL_append = " iproute2"
 IMAGE_INSTALL_append = " sudo"
-IMAGE_INSTALL_append = " e2fsprogs-resize2fs"
 IMAGE_INSTALL_append = " tzdata"
 
 # For Camera
@@ -60,6 +59,7 @@ IMAGE_FEATURES_remove = "tools-profile tools-debug tools-testapps"
 
 # For eMMC flashing
 IMAGE_INSTALL_append = " e2fsprogs"
+IMAGE_INSTALL_append = " e2fsprogs-resize2fs"
 
 # For PHY bringup
 IMAGE_INSTALL_append = " phytool"
