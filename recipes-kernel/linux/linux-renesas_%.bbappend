@@ -17,6 +17,7 @@ SRC_URI += "file://0002-add-sdhi1-laird.patch"
 SRC_URI += "file://add-vsc8531-ethernet.dts"
 SRC_URI += "file://add-can-ports.dts"
 SRC_URI += "file://0005-add-dsi0-panel.patch"
+SRC_URI += "file://display_debug.patch"
 
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
 #SRC_URI += "file://add-sx150x-port-expander.dts"

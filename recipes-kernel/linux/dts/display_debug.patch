@@ -1,0 +1,12 @@
+diff --git a/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c b/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
+index 534dd7414d42..ee4e43499259 100644
+--- a/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
++++ b/drivers/gpu/drm/panel/panel-ilitek-ili9881c.c
+@@ -642,6 +642,7 @@ static int ili9881c_dsi_probe(struct mipi_dsi_device *dsi)
+ 	struct ili9881c *ctx;
+ 	int ret;
+ 
++	printk("DEBUG: in ili9881c_dsi_probe\n");
+ 	ctx = devm_kzalloc(&dsi->dev, sizeof(*ctx), GFP_KERNEL);
+ 	if (!ctx)
+ 		return -ENOMEM;
