@@ -10,6 +10,8 @@ IMAGE_INSTALL_append = " usbutils-python"
 IMAGE_INSTALL_append = " can-utils"
 IMAGE_INSTALL_append = " libsocketcan"
 IMAGE_INSTALL_append = " iproute2"
+IMAGE_INSTALL_append = " sudo"
+IMAGE_INSTALL_append = " tzdata"
 
 # For Camera
 IMAGE_INSTALL_append = " i2c-tools"
@@ -57,6 +59,7 @@ IMAGE_INSTALL_append = " kernel-module-rtl8821au"
 
 # For eMMC flashing
 IMAGE_INSTALL_append = " e2fsprogs"
+IMAGE_INSTALL_append = " e2fsprogs-resize2fs"
 
 # For PHY bringup
 IMAGE_INSTALL_append = " phytool"
@@ -72,3 +75,4 @@ IMAGE_INSTALL_append = " docker-ce"
 
 # For NodeJS and NPM
 IMAGE_INSTALL_append = " nodejs"
+IMAGE_INSTALL_append = " nodejs-npm"
