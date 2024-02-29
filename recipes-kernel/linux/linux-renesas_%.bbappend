@@ -11,8 +11,8 @@ SRC_URI += "file://VSC8531.cfg"
 SRC_URI += "file://WIRELESS.cfg"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
-SRC_URI += "file://0001-remove-sdhi1-uhs.patch"
-SRC_URI += "file://0002-add-sdhi1-laird.patch"
+SRC_URI += "file://0001-remove-sdhi1-uhs.dts"
+SRC_URI += "file://0002-add-sdhi1-laird.dts"
 SRC_URI += "file://add-vsc8531-ethernet.dts"
 SRC_URI += "file://add-can-ports.dts"
 
