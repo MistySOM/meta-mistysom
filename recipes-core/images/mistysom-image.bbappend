@@ -77,6 +77,12 @@ IMAGE_INSTALL_append = " docker-ce"
 IMAGE_INSTALL_append = " nodejs"
 IMAGE_INSTALL_append = " nodejs-npm"
 
+# Debug
+IMAGE_INSTALL_append = " gdb gdbserver"
+IMAGE_INSTALL_append = " rsync openssh-sftp-server"
+IMAGE_INSTALL_append = " gcc"
+IMAGE_INSTALL_append = " meson ninja cmake make"
+
 # Azure iot edge cloud
 IMAGE_INSTALL_append = " aziot-edged"
 IMAGE_INSTALL_append = " aziotctl"
