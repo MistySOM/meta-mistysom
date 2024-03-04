@@ -15,6 +15,7 @@ SRC_URI += "file://0001-remove-sdhi1-uhs.dts"
 SRC_URI += "file://0002-add-sdhi1-laird.dts"
 SRC_URI += "file://add-vsc8531-ethernet.dts"
 SRC_URI += "file://add-can-ports.dts"
+SRC_URI += "file://0003-add-mcu-intefaces.patch"
 
 # Uncomment any patches here for which you wish to enable specific features for hardware testing
 #SRC_URI += "file://add-sx150x-port-expander.dts"

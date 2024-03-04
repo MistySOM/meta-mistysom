@@ -1,0 +1,53 @@
+diff --git a/tmp/work-shared/smarc-rzv2l/kernel-source/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi b/tmp/work-shared/smarc-rzv2l/kernel-source/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+index b6b5304..4cf5e4a 100644
+--- a/tmp/work-shared/smarc-rzv2l/kernel-source/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
++++ b/tmp/work-shared/smarc-rzv2l/kernel-source/arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi
+@@ -112,6 +112,48 @@
+ 		regulator-max-microvolt = <1500000>;
+ 		regulator-always-on;
+ 	};
++   gpio_keys {
++       compatible = "gpio-keys";
++       #address-cells = <1>;
++       #size-cells = <0>;
++       autorepeat;
++       pinctrl-0 = <&user_key_pin>;
++
++       IRQ_7 {
++           label = "IRQ_7 Key WAKEUP";
++           linux,code = <143>;
++           wakeup-source;
++           interrupt-parent = <&intc_ex>;
++           interrupts = <7 IRQ_TYPE_EDGE_FALLING>;
++           debounce-interval = <50>;
++       };
++   };
++
++&intc_ex {
++    status = "okay";
++};
++
++&pinctrl{
++	user_key_pin: user_key {
++		pinmux = <RZG2L_PORT_PINMUX(13, 2, 3)>;	/* IRQ7 */
++	};
++}; 
++
++};
++
++&pinctrl {
++	scifi4_pins: scif4 {
++		pinmux = <RZG2L_PORT_PINMUX(2, 0, 5)>, /* TxD */
++			 <RZG2L_PORT_PINMUX(2, 1, 5)>, /* RxD */
++	};
++};
++
++&scif4 {
++	pinctrl-0 = <&scif4_pins>;
++	pinctrl-names = "default";
++
++	uart-has-rtscts;
++	status = "okay";
+ };
+ 
+ &audio_clk1{
