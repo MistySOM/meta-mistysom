@@ -10,6 +10,7 @@ SRC_URI += "file://USB_GADGET.cfg"
 SRC_URI += "file://VSC8531.cfg"
 SRC_URI += "file://WIRELESS.cfg"
 SRC_URI += "file://NAT.cfg"
+SRC_URI += "file://DOCKER.cfg"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/dts:"
 SRC_URI += "file://0001-remove-sdhi1-uhs.dts"
