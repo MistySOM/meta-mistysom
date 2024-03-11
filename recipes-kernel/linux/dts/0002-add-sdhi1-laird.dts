@@ -1,0 +1,26 @@
+
+&sdhi1 {
+    /delete-property/ cd-gpios;
+
+    non-removable;
+    clock-frequency=<40000000>;
+    max-frequency=<40000000>;
+    #address-cells = <1>;
+    #size-cells = <0>;
+    brcmf: wifi@1 {
+        reg = <1>;
+        compatible = "brcm,bcm4329-fmac";
+        laird,regdomain = "US";
+    };
+};
+
+&pinctrl {
+    /delete-node/ sd0-dev-sel-hog;
+
+    wl_reg_on {
+        gpios = <RZG2L_GPIO(41, 1) GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "wl_reg_on";
+    };
+};
+
