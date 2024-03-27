@@ -1,0 +1,17 @@
+&pinctrl {
+    gpio_keys {
+        compatible = "gpio-keys";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        autorepeat;
+
+        P13_2 {
+            label = "GPIO Key WAKEUP";
+            linux,code = <143>;
+            wakeup-source;
+            interrupt-parent = <&pinctrl>;
+            interrupts = <RZG2L_GPIO(13, 2) IRQ_TYPE_EDGE_FALLING>;
+            debounce-interval = <50>;
+        };
+    };
+}
