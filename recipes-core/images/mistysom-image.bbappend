@@ -82,3 +82,7 @@ IMAGE_INSTALL_append = " gdb gdbserver"
 IMAGE_INSTALL_append = " rsync openssh-sftp-server"
 IMAGE_INSTALL_append = " gcc"
 IMAGE_INSTALL_append = " meson ninja cmake make"
+
+# Webserver
+IMAGE_INSTALL_append = " nginx"
+
