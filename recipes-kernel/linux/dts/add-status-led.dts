@@ -1,0 +1,8 @@
+&pinctrl {
+    status_led {
+        gpios = <RZG2L_GPIO(42, 4) GPIO_ACTIVE_HIGH>;
+        output-low;
+        line-name = "status_led";
+    };
+};
+
