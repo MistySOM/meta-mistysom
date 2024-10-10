@@ -1,0 +1,14 @@
+
+/delete-node/ &vccq_sdhi1;
+/delete-node/ &sdhi1_pins_uhs;
+
+&sdhi1 {
+    /delete-property/ pinctrl-1;
+    /delete-property/ vqmmc-supply;
+    /delete-property/ sd-uhs-sdr50;
+    /delete-property/ sd-uhs-sdr104;
+
+    pinctrl-names = "default";
+    no-1-8-v;
+};
+
