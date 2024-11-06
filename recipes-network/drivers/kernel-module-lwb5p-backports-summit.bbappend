@@ -11,7 +11,14 @@ do_install_append() {
     install -m 0644 ${B}/../wl-reset.service ${D}${systemd_system_unitdir}
 }
 
-# Failed attempt to add other wifi modules with the command below
+# Add compatibility with kernel 5.10.201 in VLP v3.0.6
+do_patch() {
+    if printf "%s\n%s" "${KERNEL_VERSION}" "5.10.188" | sort --version-sort --check=quiet; then
+        rm ${S}/backport-include/linux/etherdevice.h
+    fi
+}
+
+# The line below is a failed attempt to add other wifi modules
 # BACKPORTS_CONFIG = "defconfig-wifi"
 
 # Uncomment the lines below for verbose kernel debug messages

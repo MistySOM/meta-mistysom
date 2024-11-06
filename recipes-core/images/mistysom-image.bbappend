@@ -48,7 +48,7 @@ IMAGE_INSTALL_append = " wpa-supplicant"
 
 # WiFi Module Laird Sterling-LWB5+ (Disable other WiFi modules because this module compiles a different cfg80211.ko)
 IMAGE_INSTALL_append = " lwb5plus-sdio-div-firmware"
-IMAGE_INSTALL_append = " kernel-module-lwb5p-backports-laird"
+IMAGE_INSTALL_append = " kernel-module-lwb5p-backports-summit"
 IMAGE_FEATURES_remove = "tools-profile tools-debug tools-testapps"
 # WiFi Module Archer T2UH
 #IMAGE_INSTALL_append = " linux-firmware-mt7650"
