@@ -16,14 +16,14 @@ jobs:
     runs-on: DC02
     
     steps:    
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         repository: MistySOM/rzg2l
         path: rzg2l
         ref: develop
         submodules: true
 
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         path: meta-mistysom
 
@@ -41,7 +41,7 @@ jobs:
       run: ls -lah rzg2l/Build/output/images/smarc-rzg2l/
       
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: output-files
         path: rzg2l/Build/output/images/smarc-rzg2l/mistysom-image-smarc-rzg2l.wic.bz2

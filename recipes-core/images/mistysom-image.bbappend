@@ -37,7 +37,6 @@ IMAGE_INSTALL_append = " gstreamer1.0-rtsp-server"
 # For Hardware Acceleration and Video Codecs
 IMAGE_INSTALL_append = " gstreamer1.0-plugin-vspmfilter"
 IMAGE_INSTALL_append = " gstreamer1.0-omx"
-IMAGE_INSTALL_append = " omx-user-module"
 IMAGE_INSTALL_append = " mmngrbuf-user-module kernel-module-mmngrbuf"
 IMAGE_INSTALL_append = " mmngr-user-module kernel-module-mmngr"
 IMAGE_INSTALL_append = " vspmif-user-module kernel-module-vspm kernel-module-vspmif"
@@ -49,7 +48,7 @@ IMAGE_INSTALL_append = " wpa-supplicant"
 
 # WiFi Module Laird Sterling-LWB5+ (Disable other WiFi modules because this module compiles a different cfg80211.ko)
 IMAGE_INSTALL_append = " lwb5plus-sdio-div-firmware"
-IMAGE_INSTALL_append = " kernel-module-lwb5p-backports-laird"
+IMAGE_INSTALL_append = " kernel-module-lwb5p-backports-summit"
 IMAGE_FEATURES_remove = "tools-profile tools-debug tools-testapps"
 # WiFi Module Archer T2UH
 #IMAGE_INSTALL_append = " linux-firmware-mt7650"
